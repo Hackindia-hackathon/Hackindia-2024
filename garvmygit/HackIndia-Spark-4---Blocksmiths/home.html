@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TokenizeHub - IoT Control Panel</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">TokenizeHub</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#devices-section">Devices</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#control-section">Control Device</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Tokens
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Token Balance</a>
+                        <a class="dropdown-item" href="#">Manage Tokens</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h1 class="text-center my-4">TokenizeHub IoT Control Panel</h1>
+
+        <!-- Devices Section -->
+        <div id="devices-section" class="device-list mb-5">
+            <h2>Devices</h2>
+            <ul id="device-list" class="list-group"></ul>
+        </div>
+
+        <!-- Control Device Section -->
+        <div id="control-section" class="device-control mb-5">
+            <h2>Control Device</h2>
+            <form id="control-form" class="form-inline">
+                <div class="form-group mr-2">
+                    <input type="text" id="device-id" class="form-control" placeholder="Enter Device ID" required>
+                </div>
+                <button type="submit" class="btn btn-success">Control Device</button>
+            </form>
+        </div>
+
+        <!-- Token Balance Section -->
+        <div class="token-balance">
+            <h2>Your Token Balance</h2>
+            <p id="token-balance" class="font-weight-bold">Loading...</p>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

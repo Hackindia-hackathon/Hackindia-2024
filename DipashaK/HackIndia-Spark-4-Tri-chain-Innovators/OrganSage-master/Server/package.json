@@ -1,0 +1,28 @@
+{
+  "name": "organchain",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ananya-14-04/OrganD-Decentralized-Organ-Donation-App.git"
+  },
+  "author": "Harshit Jaiswal",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.3",
+    "dotenv": "^16.4.5",
+    "express": "^4.17.1",
+    "express-rate-limit": "^7.4.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.13.22"
+  }
+}

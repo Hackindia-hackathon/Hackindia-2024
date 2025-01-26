@@ -1,0 +1,61 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f3f0f6;
+    color: #333;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Header styling */
+h1 {
+    color: #6a0dad; /* Lavender color */
+    margin-bottom: 20px;
+}
+
+/* Button styling */
+button {
+    background-color: #6a0dad; /* Lavender color */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 10px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #5a00a6; /* Darker lavender for hover */
+}
+
+/* Output and balance styling */
+#output, #balance {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #6a0dad; /* Lavender color */
+    border: 1px solid #6a0dad;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #e9d8f2; /* Light lavender background */
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    button {
+        width: 100%;
+        padding: 15px;
+    }
+
+    #output, #balance {
+        font-size: 16px;
+    }
+}

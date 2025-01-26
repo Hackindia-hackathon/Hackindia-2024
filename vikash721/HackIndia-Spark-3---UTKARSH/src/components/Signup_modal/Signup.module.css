@@ -1,0 +1,173 @@
+/* General Overlay Style */
+.customModalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+/* Modal Container */
+.customModal {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    position: relative;
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Modal Header */
+.customModalHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+   
+}
+
+/* Close Button */
+.customModalClose {
+    font-size: 28px;
+    color: #333;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.customModalClose:hover {
+    color: #007bff;
+}
+
+/* Modal Content */
+.customModalContent {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Form Field */
+.customField {
+    margin-bottom: 20px;
+}
+
+.customInput,
+.customPassword {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+.customInput:focus,
+.customPassword:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Button Style */
+.customButton {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.customButton:hover {
+    background-color: #0056b3;
+    transform: scale(1.02);
+}
+
+.customButton:focus {
+    outline: none;
+}
+
+/* Error Message */
+.customErrorMessage {
+    color: #e74c3c;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+/* Form Link */
+.customFormLink {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.customLink {
+    color: #007bff;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.customLink:hover {
+    text-decoration: underline;
+}
+
+/* Keyframes for fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+
+/* Button Style */
+.customButton {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff; /* Primary color */
+    color: #ffffff; /* Text color */
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    text-align: center;
+}
+
+.customButton:hover {
+    background-color: #0056b3; /* Darker shade for hover effect */
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds shadow on hover */
+}
+
+.customButton:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); /* Focus outline */
+}
+
+/* Disabled State */
+.customButton:disabled {
+    background-color: #c0c0c0; /* Gray color for disabled state */
+    cursor: not-allowed;
+    box-shadow: none; /* No shadow for disabled state */
+}
+
+.header{
+font-size: 1.4rem;
+font-weight: 500;
+}

@@ -1,0 +1,125 @@
+/* NFTCard Component Styles */
+
+/* Main Card Container */
+.card {
+  position: relative;
+  width: 190px; /* Matches the size specified */
+  height: 254px; /* Matches the height specified */
+  color: #fff;
+  transition: 0.5s;
+  cursor: pointer;
+  border-radius: 1.2em;
+  overflow: hidden; /* Prevents content overflow */
+}
+
+/* Card Hover Effect */
+.card:hover {
+  transform: translateY(-20px);
+}
+
+/* Background Gradient */
+.card::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(45deg, #ffbc00, #ff0058); /* Color gradient */
+  border-radius: 1.2em;
+}
+
+/* Outer Blur Effect */
+.card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #ffbc00, #ff0058);
+  filter: blur(30px);
+}
+
+/* Inner Dark Overlay */
+.card span {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  right: 6px;
+  bottom: 6px;
+  background-color: rgba(0, 0, 0, 0.6); /* Dark overlay */
+  z-index: 2;
+  border-radius: 1em;
+}
+
+/* Light Overlay Inside Card */
+.card span::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Content Container */
+.card .content {
+  position: relative;
+  padding: 10px;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.5em;
+}
+
+/* NFT Information Styling */
+.nft-info {
+  text-align: center; /* Centers text inside the card */
+}
+
+.nft-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px; /* Slightly rounded image corners */
+  margin-bottom: 10px; /* Spacing between image and text */
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Image Hover Effect */
+.nft-image:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+.nft-name {
+  font-size: 1.25rem;
+  margin: 10px 0;
+  color: #ffffff; /* Text color for name */
+}
+
+.nft-price,
+.nft-creator {
+  font-size: 1rem;
+  margin: 5px 0;
+  color: #ddd; /* Lighter color for price and creator */
+}
+
+/* Button Style */
+.buy-button {
+  background-color: #61dafb; /* Button color */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.buy-button:hover {
+  background-color: #4da3c7; /* Darker shade on hover */
+}

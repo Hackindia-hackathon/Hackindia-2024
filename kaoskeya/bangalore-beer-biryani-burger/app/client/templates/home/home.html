@@ -1,0 +1,46 @@
+<template name="Home">
+    <div class="xview">
+
+<!-- 		{{ #if currentUser }}
+			{{ #if isInRole 'admin' }}
+				<a href="{{ pathFor "admin" }}">Admin</a>
+			{{ /if }}
+			<button id="logout">Logout</button>
+		{{ else }}
+			<button id="login">Login</button>
+		{{ /if }}
+ -->
+ 		<!-- {{ > loginButtons }} -->
+		<div class="xlist">
+			{{ #each items }}
+				<div class="xitem">
+					<a class="ximgarea" data-toggle="modal" data-target="#xitemModal" data-item-id="{{ _id }}" id="item_{{ _id }}" style="background-image: url({{ getImage }}); background-size: cover;">
+						<div class="xnumlicks"><i class="lick-icons"></i>{{ votes }}</div>
+					</a>
+					<a class="xlickarea">
+						{{ #if licked }}
+							<div class="xlick e-licked unlick"></div>
+						{{ else }}
+							<div class="xlick lick"></div>
+						{{ /if }}
+					</a>
+					<a class="xtxtarea" data-toggle="modal" data-target="#xitemModal" data-item-id="{{ _id }}">
+						<div class="xtitle">{{ name }}</div>
+						<div class="xrestaurant">{{ restaurant.name }}</div>
+					</a>
+				</div>
+			{{ /each }}
+			{{ #unless items }}
+				<div class="xbtmbuffer">
+					<div class="xend">you haven't licked any food yet :(</div>
+				</div>
+			{{ /unless }}
+			{{ #if items }}
+				<div class="xbtmbuffer">
+					<div class="xend">that's all folks :)</div>
+				</div>
+			{{ /if }}
+		</div>
+	</div>
+	<br /><br /><br />
+</template>

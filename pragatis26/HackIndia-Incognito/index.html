@@ -1,0 +1,63 @@
+<html>
+<head>
+    <meta charset="utf8">
+    <title>Web3 Pac-Man - Lakea</title>
+    <meta name="description"
+          content="Play Pac-Man on the blockchain! Collect pellets, avoid ghosts, and compete for high scores. This web3 JavaScript game is powered by Lakea Blockchain APIs, allowing for secure and transparent gameplay. Join the decentralized arcade today.">
+    <meta name="keywords" content="Pac-Man, blockchain game, web3, smart contracts, decentralized arcade, high scores, pellets, ghosts, JavaScript game, HTML5 game">
+    <meta name="author" content="Haole Zheng, Gesiel Rosa">
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://web3-pac-man.netlify.app/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Web3 Pac-Man - Lakea">
+    <meta property="og:description" content="Play Pac-Man on the blockchain! Collect pellets, avoid ghosts, and compete for high scores. This web3 JavaScript game is powered by Lakea Blockchain APIs, allowing for secure and transparent gameplay. Join the decentralized arcade today.">
+    <meta property="og:image" content="https://web3-pac-man.netlify.app/image.png">
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="web3-pac-man.netlify.app">
+    <meta property="twitter:url" content="https://web3-pac-man.netlify.app/">
+    <meta name="twitter:title" content="Web3 Pac-Man - Lakea">
+    <meta name="twitter:description" content="Play Pac-Man on the blockchain! Collect pellets, avoid ghosts, and compete for high scores. This web3 JavaScript game is powered by Lakea Blockchain APIs, allowing for secure and transparent gameplay. Join the decentralized arcade today.">
+    <meta name="twitter:image" content="https://web3-pac-man.netlify.app/image.png">
+
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+</head>
+<body>
+<div class="wrapper">
+    <div class="mod-game">
+        <canvas id="canvas" width="960" height="640">Pac-Man</canvas>
+        <div class="info">
+            <p>Press [W] to connect wallet</p>
+            <p>Press [SPACE] to pause or continue</p>
+            <p>Press [M] to change difficulty mode</p>
+            <p>Press [R] to reset</p>
+        </div>
+    </div>
+</div>
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const mode = urlParams.get('mode') || 'normal';
+
+    const env = {
+        builderUrl: 'https://api.lakea.dev/v1',
+        authCode: 'pSlQyz+rUH14aYWP0BbgoKzhWqimXMA/7euAKsx86LSJKfPS',
+        gameId: '89c4df03-f6b8-4ec9-a6ee-ae19277fb220',
+        coinId: '2fdcee3c-640e-47be-a9e1-748da0f1dccf',
+        levelTemplateId: 'aa7a3ded-ed97-4a94-a030-1ad3781ae174',
+        initialLife: 5,
+        scoreAwardGoal: mode === 'easy' ? 100 : 500,
+        levelAwardGoal: mode === 'easy' ? 1 : 3,
+    }
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script src="utils.js"></script>
+<script src="wallet.js"></script>
+<script src="lakea-builder.js"></script>
+<script src="game.js"></script>
+<script src="index.js"></script>
+</body>
+</html>

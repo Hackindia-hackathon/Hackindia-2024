@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Decentralized Time Capsule</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+  <script src="scripts.js" defer></script>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#create">Create Capsule</a></li>
+        <li><a href="#upcoming">Upcoming Capsules</a></li>
+        <li><a href="#manage">Manage Capsules</a></li>
+        <li><button id="connect">Connect MetaMask</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="home">
+    <h1>Welcome to Decentralized Time Capsule</h1>
+  </section>
+
+  <section id="create" class="capsule-section">
+    <h2>Create Your Time Capsule</h2>
+    <form id="create-form">
+      <input type="text" id="title" placeholder="Title" required>
+      <textarea id="description" placeholder="Description" required></textarea>
+      <input type="date" id="date" required>
+      <input type="text" id="recipient" placeholder="Recipient Wallet Address" required>
+      <input type="file" id="file" required>
+      <button type="submit">Create Capsule</button>
+    </form>
+  </section>
+
+  <section id="manage-capsules-section" class="capsule-section">
+    <h2>Upcoming Capsules</h2>
+    <div class="manage-list">
+      <!-- Dynamically filled with capsules -->
+    </div>
+  </section>
+
+  <section id="manage" class="capsule-section">
+    <h2>Manage Your Capsules</h2>
+    <div class="manage-list">
+      <!-- Dynamically filled with user capsules -->
+    </div>
+  </section>
+
+  <!-- Modal for Viewing Capsule Details -->
+  <div id="capsule-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <h2 id="modal-title">Capsule Title</h2>
+      <p id="modal-description">Capsule Description</p>
+      <p id="modal-recipient">Recipient: <span id="modal-recipient-address"></span></p>
+      <p id="modal-date">Opening Date: <span id="modal-date-text"></span></p>
+      <p id="modal-file">Attached File: <a id="modal-file-link" href="#" target="_blank">Download</a></p>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2024 Decentralized Time Capsule. All rights reserved.</p>
+  </footer>
+</body>
+</html>

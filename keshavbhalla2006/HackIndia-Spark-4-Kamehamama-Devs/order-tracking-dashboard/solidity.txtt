@@ -1,0 +1,20 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+
+contract DeliveryToken is ERC20 {
+    address public owner;
+
+    constructor(uint256 initialSupply) ERC20("DeliveryToken", "DLT") {
+        _mint(msg.sender, initialSupply);
+        owner = msg.sender;
+    }
+
+    function rewardDriver(address driver, uint256 amount) public {
+        require(msg.sender == owner, "Only the owner can reward tokens");
+        _mint(driver, amount);
+    }
+}
+
+filename--mytoken.sol

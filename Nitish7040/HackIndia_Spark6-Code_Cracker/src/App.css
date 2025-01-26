@@ -1,0 +1,200 @@
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f1f1f1;
+}
+
+.welcome-message {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.login-button {
+  background-color: #007bff;
+  color: #fff;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 0.3rem;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: #0069d9;
+}
+
+
+.connected-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f1f1f1;
+}
+
+.connected-header {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.connected-account {
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.connected-button {
+  background-color: #007bff;
+  color: #fff;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 0.3rem;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 2rem;
+}
+
+.connected-button:hover {
+  background-color: #0069d9;
+}
+
+.connected-contract-address {
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+
+.candidates-table {
+  border-collapse: collapse;
+  width: 50%;
+  text-align:center;
+}
+
+.candidates-table th, .candidates-table td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.candidates-table th {
+  background-color: #f2f2f2;
+}
+
+input[type=number] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+
+/* Overall container styling */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #1a1a1a, #333333); /* Gradient background for depth */
+  color: #e0e0e0; /* Light text color for contrast */
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
+  text-align: center;
+}
+
+/* Animated heading styling with gradient text */
+.welcome-message {
+  font-size: 2.5rem; /* Responsive font size */
+  font-weight: 700;
+  margin-bottom: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  line-height: 1.4;
+  perspective: 1200px; /* Enhanced perspective for 3D effect */
+}
+
+/* Individual word styling with 3D and gradient effect */
+.welcome-message span {
+  display: inline-block;
+  background: linear-gradient(135deg, #00c6ff, #0072ff); /* Gradient color from light blue to darker blue */
+  -webkit-background-clip: text; /* Clip gradient to text */
+  background-clip: text;
+  color: transparent; /* Make text transparent to show gradient */
+  font-size: 2.5rem; /* Consistent font size */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6), 0 0 15px rgba(0, 204, 255, 0.5), 0 0 5px rgba(0, 0, 0, 0.4); /* Shadow for 3D effect */
+  opacity: 0;
+  transform: translateY(50px) rotateX(20deg);
+  animation: slideIn 1s ease-out forwards;
+  transform-origin: center bottom;
+}
+
+/* Keyframe for sliding and rotating effect */
+@keyframes slideIn {
+  0% { opacity: 0; transform: translateY(50px) rotateX(20deg); }
+  100% { opacity: 1; transform: translateY(0) rotateX(0); }
+}
+
+/* Delay each word’s animation */
+.welcome-message span:nth-child(1) { animation-delay: 0.1s; }
+.welcome-message span:nth-child(2) { animation-delay: 1s; }
+.welcome-message span:nth-child(3) { animation-delay: 1.9s; }
+.welcome-message span:nth-child(4) { animation-delay: 2.8s; }
+.welcome-message span:nth-child(5) { animation-delay: 3.7s; }
+.welcome-message span:nth-child(6) { animation-delay: 4.6s; }
+.welcome-message span:nth-child(7) { animation-delay: 5.5s; }
+.welcome-message span:nth-child(8) { animation-delay: 6.4s; }
+.welcome-message span:nth-child(9) { animation-delay: 7.3s; }
+.welcome-message span:nth-child(10) { animation-delay: 8.2s; }
+.welcome-message span:nth-child(11) { animation-delay: 9.1s; }
+.welcome-message span:nth-child(12) { animation-delay: 10s; }
+.welcome-message span:nth-child(13) { animation-delay: 10.9s; }
+
+/* Styling for the login button */
+.login-button {
+  background-color: #007bff; /* Primary color */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  margin-top: 20px;
+}
+
+/* Button hover effect */
+.login-button:hover {
+  background-color: #0056b3; /* Darker blue */
+  transform: translateY(-3px); /* Lift effect */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Enhanced shadow */
+}
+
+/* Button focus effect */
+.login-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.6); /* Focus ring */
+}
+
+/* Accessibility and responsiveness */
+@media (max-width: 768px) {
+  .welcome-message {
+      font-size: 2rem; /* Adjust font size for smaller screens */
+  }
+  
+  .login-button {
+      font-size: 1rem; /* Adjust button font size for smaller screens */
+      padding: 12px 24px; /* Adjust button padding */
+  }
+}

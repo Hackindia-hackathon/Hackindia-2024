@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Watch Time Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .video-container {
+            margin: 20px 0;
+        }
+        video {
+            width: 100%;
+            max-width: 600px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Watch Videos</h1>
+    <div id="videos"></div>
+
+    <script>
+        // Fetch videos from the backend
+        fetch('http://localhost:3000/api/videos')
+
+            .then(response => response.json())
+            .then(videos => {
+                const videoContainer = document.getElementById('videos');
+                videos.forEach(video => {
+                    const videoDiv = document.createElement('div');
+                    videoDiv.className = 'video-container';
+                    videoDiv.innerHTML = `
+                        <h2>${video.title}</h2>
+                        <video id="${video.id}" controls>
+                            <source src="${video.url}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    `;
+                    videoContainer.appendChild(videoDiv);
+
+                    const videoPlayer = document.getElementById(video.id);
+                    let watchStartTime = 0;
+                    let totalWatchTime = 0;
+
+                    videoPlayer.addEventListener('play', function() {
+                        watchStartTime = new Date().getTime();
+                    });
+
+                    videoPlayer.addEventListener('pause', function() {
+                        trackWatchTime();
+                    });
+
+                    videoPlayer.addEventListener('ended', function() {
+                        trackWatchTime();
+                    });
+
+                    window.addEventListener('beforeunload', function() {
+                        trackWatchTime();
+                    });
+
+                    function trackWatchTime() {
+                        if (watchStartTime > 0) {
+                            const watchEndTime = new Date().getTime();
+                            const watchedFor = (watchEndTime - watchStartTime) / 1000; // in seconds
+                            totalWatchTime += watchedFor;
+                            watchStartTime = 0;
+
+                            // Send watch time data to the server
+                            fetch('/api/saveWatchTime', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify({
+                                    userId: 'USER_ID',  // Replace with actual user ID
+                                    videoId: video.id,
+                                    watchTime: totalWatchTime,
+                                    timestamp: new Date().toISOString()
+                                })
+                            })
+                            .then(response => response.json())
+                            .then(data => console.log('Server response:', data))
+                            .catch(error => console.error('Error:', error));
+                        }
+                    }               });
+            })
+            .catch(error => console.log('Error fetching videos:'));
+    </script>
+</body>
+</html>

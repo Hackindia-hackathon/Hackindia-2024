@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art Marketplace</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/web3/dist/web3.min.js"></script>
+    <script src="art_marketplace_abi.js"></script>
+    <script src="scripts.js"></script>
+</head>
+<body>
+    <h1>Art Marketplace</h1>
+    <p>Connected Account: <span id="account"></span></p>
+    <input type="text" id="tokenURI" placeholder="Token URI">
+    <button id="mintButton">Mint Art</button>
+
+    <script>
+        async function load() {
+            if (typeof window.ethereum !== 'undefined') {
+                const web3 = new Web3(window.ethereum);
+                await window.ethereum.enable();
+
+                const accounts = await web3.eth.getAccounts();
+                document.getElementById('account').innerText = accounts[0];
+
+                const networkId = await web3.eth.net.getId();
+                const deployedNetwork = ArtMarketplace.networks[networkId];
+                const artMarketplace = new web3.eth.Contract(
+                    ArtMarketplace.abi,
+                    deployedNetwork && deployedNetwork.address,
+                );
+
+                const mintButton = document.getElementById('mintButton');
+                mintButton.onclick = async () => {
+                    const tokenURI = document.getElementById('tokenURI').value;
+                    await artMarketplace.methods.mintArt(accounts[0], tokenURI).send({ from: accounts[0] });
+                    alert('Token minted successfully!');
+                };
+            } else {
+                alert('Please install MetaMask!');
+            }
+        }
+
+        window.onload = load;
+    </script>
+</body>
+</html>

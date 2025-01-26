@@ -1,0 +1,9 @@
+import tensorflow as tf
+
+class AIModel:
+    def generateText(self, prompt):
+        # Load trained model
+        model = tf.keras.models.load_model('ai_model.h5')
+        # Generate text based on prompt
+        generatedText = model.predict(prompt)
+        return generatedText

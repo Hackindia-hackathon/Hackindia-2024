@@ -1,0 +1,22 @@
+[
+    
+        {
+            "date":"2019-01-01",
+            "expenseName":"Rent",
+            "expenseType":"Housing",
+            "expenseAmount":"1000"
+        },
+        {
+            "date":"2019-01-01",
+            "expenseName":"Pen",
+            "expenseType":"Housing",
+            "expenseAmount":"1300"
+        },
+        {
+            "date":"2019-01-01",
+            "expenseName":"CLothing",
+            "expenseType":"Housing",
+            "expenseAmount":"1050"
+        }
+    
+    ]

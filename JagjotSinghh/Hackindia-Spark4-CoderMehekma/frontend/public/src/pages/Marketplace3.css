@@ -1,0 +1,52 @@
+/* Marketplace Styles */
+.marketplace {
+    padding: 50px 20px;
+    background-color: #000000;
+    text-align: center;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.marketplace h2 {
+    font-size: 5rem;
+    color: #ffffff;
+    margin-top: 30px; /* Space below search bar */
+    margin-bottom: 40px;
+    animation: slideInFromLeft 1.5s ease-out forwards;
+}
+
+.nft-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 30px;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+#poda {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px; /* Spacing between search bar and heading */
+}
+
+/* Additional search bar styles */
+.input {
+    width: 300px;
+    height: 40px;
+    background-color: #010201;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    padding-left: 20px;
+    font-size: 16px;
+}
+
+.input::placeholder {
+    color: #c0b9c0;
+}
+
+.input:focus {
+    outline: none;
+    border: 1px solid #cf30aa; /* Glow effect on focus */
+}
+
+/* Optional styling for glow, filter, and hover effects from Uiverse.io */

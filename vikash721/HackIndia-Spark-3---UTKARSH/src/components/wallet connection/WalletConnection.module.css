@@ -1,0 +1,48 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .connectButton {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .connectButton:hover {
+    background-color: #2980b9;
+  }
+  
+  .connected {
+    color: #2ecc71;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+  }
+  
+  .disconnectButton {
+    background-color: #e74c3c;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  
+  .disconnectButton:hover {
+    background-color: #c0392b;
+  }
+  
+  .loading {
+    color: #f39c12;
+  }
+  
+  .error {
+    color: #e74c3c;
+  }
+  

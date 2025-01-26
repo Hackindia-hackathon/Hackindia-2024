@@ -1,0 +1,57 @@
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# React build outputs
+build/
+*.log
+
+# Environment variables
+.env
+
+# IDEs and editors
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# System files
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+
+# Dependency directories
+jspm_packages/
+
+# Storybook
+.storybook-out/
+
+# Miscellaneous
+*.sublime-project
+*.sublime-workspace
+*.idea/
+*.vscode/
+
+# Coverage directory used by tools like istanbul
+coverage/
+
+# Output of 'npm pack'
+*.tgz
+
+# Bower
+bower_components/
+
+# Yarn Integrity file
+.yarn-integrity
+
+# Webpack
+.cache/

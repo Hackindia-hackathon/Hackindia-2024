@@ -1,0 +1,104 @@
+.marketplace {
+    padding: 50px 20px;
+    background-color: #f7f7f7;
+    text-align: center;
+    animation: fadeIn 1.5s ease-in-out;
+  }
+  
+  .marketplace h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 40px;
+    animation: zoomIn 1s ease-out;
+  }
+  
+  .nft-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 0 20px;
+  }
+  
+  .nft-card {
+    background: #ffffff;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    animation: cardPopUp 0.6s ease-in-out;
+  }
+  
+  .nft-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  }
+  
+  .nft-image {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .nft-image:hover {
+    transform: scale(1.05);
+  }
+  
+  .nft-name {
+    font-size: 1.5rem;
+    margin: 10px 0;
+    color: #333;
+  }
+  
+  .nft-price, .nft-creator {
+    font-size: 1rem;
+    color: #666;
+    margin: 5px 0;
+  }
+  
+  .buy-button {
+    background-color: #61dafb;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .buy-button:hover {
+    background-color: #4da3c7;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes zoomIn {
+    from {
+      transform: scale(0.8);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes cardPopUp {
+    from {
+      transform: translateY(50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  

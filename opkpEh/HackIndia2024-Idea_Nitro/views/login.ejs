@@ -1,0 +1,64 @@
+<%- include('base', { content: `
+    <section class="w-full min-h-screen py-12 md:py-24 lg:py-32 bg-black text-white">
+        <div class="container mx-auto px-4 md:px-6 grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
+            <div class="space-y-6 animate-fadeIn px-4">
+                <h1 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl xl:text-6xl text-center animate-fadeIn">
+                    Login
+                </h1>
+                <p class="text-xl text-center animate-fadeIn">Welcome back! Please log in to continue.</p>
+                <div class="grid gap-4 bg-muted/20 p-8 rounded-lg animate-fadeIn mx-auto w-full md:w-3/4 lg:w-2/3">
+                    <form class="space-y-6" action="/login" method="POST">
+                        <div class="grid gap-2 animate-fadeIn">
+                            <label
+                                class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                                for="username">
+                                Username
+                            </label>
+                            <input
+                                class="flex text-black h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                                id="username" name="username" placeholder="Enter your username" required />
+                        </div>
+                        <div class="grid gap-2 animate-fadeIn">
+                            <label
+                                class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                                for="password">
+                                Password
+                            </label>
+                            <input
+                                class="flex h-10 text-black w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                                id="password" placeholder="Enter your password" name="password" required=""
+                                type="password" />
+                        </div>
+                        <button
+                            class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 animate-fadeIn bg-white text-black w-full"
+                            type="submit">
+                            Login
+                        </button>
+                        <div class="flex items-center gap-3 animate-fadeIn">
+                            Don't have an account?
+                            <a class="text-sm text-primary hover:underline animate-fadeIn" href="/signin">
+                                Sign up
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="bg-muted/20 p-6 rounded-lg flex items-center justify-center animate-fadeIn">
+                <div class="text-center space-y-4 animate-fadeIn">
+                    <img src="/images/login.png" alt="Blockchain Illustration"
+                        class="rounded-lg mx-auto animate-fadeIn w-96 h-96">
+                    <p class="text-muted-foreground animate-fadeIn">Explore the world of blockchain technology
+                        and learn how it works.</p>
+                    <a class="inline-flex items-center gap-2 text-primary animate-fadeIn" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="h-4 w-4 animate-fadeIn">
+                            <path d="M5 12h14"></path>
+                            <path d="m12 5 7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+` }) %>

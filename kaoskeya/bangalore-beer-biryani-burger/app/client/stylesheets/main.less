@@ -1,0 +1,667 @@
+/*****************************************************************************/
+/* main: Style */
+/*****************************************************************************/
+.main {
+}
+
+// beers burgers biryanis
+
+// refs
+
+.clearfix, 
+.c-fx {
+  display: block;
+  zoom: 1;
+
+    &:after {
+        content: " ";
+        display: block;
+        font-size: 0;
+        height: 0;
+        clear: both;
+        visibility: hidden;
+    }
+}
+
+.no-select, 
+.n-sl {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; 
+}
+
+.no-list, 
+.n-li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.ellipsis, 
+.ep {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+}
+
+.cl-b {
+    clear: both;
+}
+
+// fixes
+
+*, *:after, *:before {
+    box-sizing: border-box;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    cursor: pointer;
+    outline: 0;
+    text-decoration: none;
+
+    &:hover, &:focus, &:active {
+        outline: 0;
+    }
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+button::-moz-focus-inner {
+    border: 0;
+}
+
+button:focus, input:focus,
+select:focus, textarea:focus {
+    outline: none;
+}
+
+input, select, textarea {
+    -webkit-appearance: none;
+    -moz-appearance:    none;
+    appearance:         none;
+}
+
+textarea {
+    overflow: auto;
+}
+
+// func 
+
+.box-shadow(@h, @v, @blur, @spread, @color) {
+    -webkit-box-shadow: @h @v @blur @spread @color;
+    -moz-box-shadow: @h @v @blur @spread @color;
+    box-shadow: @h @v @blur @spread @color;
+}
+
+// styles
+
+body {
+    font-size: 16px;
+    line-height: 1.2;
+    font-family: 'Lato', sans-serif;
+    background-color: #eee;
+}
+
+input, textarea, select {
+    box-shadow: none;
+    border: #ddd solid 1px;
+    border-radius: 2px;
+    width: 100%;
+    padding: 6px 8px;
+}
+
+textarea {
+    max-width: 100%;
+    min-width: 100%;
+    min-height: 60px;
+}
+
+button, a.xbt {
+    display: block;
+    float: left;
+    text-align: center;
+    text-decoration: none;
+
+    border: (#039BE5 - #111) solid 1px;
+    background-color: #039BE5;
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 4px;
+
+    cursor: pointer;
+
+    &:hover {
+        background-color: (#039BE5 - #080808);
+    }
+
+    &, &:hover, &:active, &:focus {
+        text-decoration: none;
+    }
+}
+
+@max-width: 400px;
+
+.xview {
+    .c-fx;
+    position: relative;
+    float: none;
+    width: 100%;
+    max-width: @max-width;
+    margin: 0 auto;
+}
+
+@icon-height: 28px;
+@icon-path: 'images/';
+
+.xtabs {
+    .c-fx;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #222;
+
+    &.g-hidden {
+        height: 0;
+        overflow: hidden;
+    }
+
+    .xtabwrapper {
+        .c-fx;
+        position: relative;
+        float: none;
+        max-width: @max-width;
+        margin: 0 auto;
+    }
+
+    .xtab {
+        clear: none;
+        float: left;
+        color: #fff;
+        padding: 5px;
+        // width: 33.3333%;
+        width: 25%;
+        cursor: pointer;
+        text-decoration: none;
+
+        .xicon {
+            position: relative;
+            float: none;
+            font-family: 'Material Icons';
+            font-size: @icon-height;
+            line-height: 1.2;
+
+            text-align: center;
+            padding: (@icon-height / 4);
+            border-radius: 8px;
+
+            height: (@icon-height + (@icon-height / 2)); 
+            background-repeat: no-repeat;
+            background-size: @icon-height;
+            background-position: center;
+
+            &.beer {
+                background-image: url('@{icon-path}icon-beer.png');
+            }
+
+            &.burger {
+                background-image: url('@{icon-path}icon-burger.png');
+            }
+
+            &.biryani {
+                background-image: url('@{icon-path}icon-biryani.png');
+            }
+
+            &.me {
+                background-image: url('@{icon-path}icon-me.png');
+            }
+        }
+
+        &:hover {
+            .xicon {
+                background-color: #333;
+            }
+        }
+
+        &.g-sel {
+            .xicon {
+                background-color: #555;
+            }
+        }
+    }
+}
+
+// @img-height: ((@max-width * 9 ) / 16);
+@img-height: ((@max-width * 100 ) / 235);
+
+@lick-height: 60px;
+@lick-width: 60px;
+
+.xlickfn() {
+    float: right;
+    width: @lick-width;
+    height: @lick-height !important;
+
+    color: #aaa;
+
+    font-family: 'Material Icons';
+    font-size: @icon-height;
+    line-height: 1.2;
+
+    text-align: center;
+    // padding: 13px 12px 12px;
+    border-radius: 4px;
+
+    cursor: pointer;
+
+    height: (@icon-height + (@icon-height / 2)); 
+    background-repeat: no-repeat;
+    background-size: @icon-height;
+    background-position: center;
+    background-image: url('@{icon-path}lick-orig-grey.png');
+
+    /*
+    &:after {
+        content: '\e87D';
+    } */
+
+    &:hover {
+        background-color: #f8f8f8;
+        // color: #F50057;
+    }
+
+    &.e-licked {
+        color: #F50057;
+        background-image: url('@{icon-path}lick-orig-variant.png');
+    }
+}
+
+.xlist {
+    .c-fx;
+    float: none;
+    padding-top: 20px;
+
+    &.g-show {
+        display: block;
+    }
+
+    img {
+        width: 100%;
+    }
+
+    .xbtmbuffer {
+        float: none;
+        clear: both;
+        padding-bottom: (@icon-height * 2);
+
+        .xend {
+            float: none;
+            text-align: center;
+            font-size: 24px;
+            font-weight: 300;
+            font-style: italic;
+            padding: 60px 0 80px;
+        }
+    }
+
+    .xitem {
+        .c-fx;
+        float: none;
+        padding: 10px;
+        margin-bottom: 10px;
+        background-color: #fff;
+        .box-shadow(0, 3px, 2px, -1px, rgba(20,20,20,0.1));
+
+        .ximgarea, .xlickarea, .xtxtarea {
+            position: relative;
+            overflow: hidden;
+            display: block;
+            float: none;
+            &, &:hover, &:active, &:hover {
+                text-decoration: none;
+                color: #222;
+            }
+        }
+
+        .ximgarea {
+            position: relative;
+            height: @img-height;
+            background-color: #80D8FF;
+
+            .xnumlicks {
+                position: absolute;
+                top: 0;
+                right: 0;
+                margin: 10px;
+                background-color: rgba(0,0,0,0.1);
+                font-size: 24px;
+                padding: 6px 8px;
+
+                // font-family: 'Montserrat';
+                font-weight: bold;
+                color: #fff;
+                border-radius: 4px;
+
+                .lick-icons {
+                    display: block;
+                    float: left;
+                    font-size: 16px;
+                    padding: 5px 4px 5px 0;
+
+
+                    height: (16px + 10px); 
+                    width: (16px + 10px); 
+                    background-repeat: no-repeat;
+                    background-size: 16px;
+                    background-position: center;
+                    background-image: url('@{icon-path}lick-orig-white.png');
+                }
+            }
+        }
+
+        .xlickarea, .xtxtarea {
+            padding: 10px 0 0;
+        }
+
+        .xlickarea {
+            clear: both;
+            float: right;
+
+            .xlick {
+                .xlickfn();
+            }
+        }
+
+        .xtxtarea {
+            float: none;
+            margin-right: @lick-width + 10px;
+
+            .xtitle {
+                font-family: 'Montserrat';
+                font-weight: normal;
+                font-size: 18px;
+                margin-bottom: 8px;
+            }
+
+            .xrestaurant {
+                .ep;
+                font-weight: normal;
+                color: #777;
+            }
+        }
+    }
+}
+
+// override modal slide down
+#xitemModal.modal.fade .modal-dialog {
+    -webkit-transform: translate(0, 0);
+    -ms-transform: translate(0, 0); // IE9 only
+    transform: translate(0, 0);
+
+}
+
+.floatingxbutton-wrapper {
+    display: none;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0; 
+    margin-left: 50%;
+    height: @lick-height + 15px;
+    z-index: 3000;
+
+    &.g-show {
+        display: block;
+    }
+
+    .floatingxbutton {
+        position: relative;
+        width: @lick-width;
+        height: @lick-height;
+        margin-left: -(@lick-width /2);
+
+        background-color: #f00;
+        color: #fff;
+        font-size: @icon-height;
+        line-height: 1.2;
+
+        text-align: center;
+        padding: 14px 12px;
+        border-radius: 100px;
+
+
+        background-repeat: no-repeat;
+        background-size: @icon-height;
+        background-position: center;
+        background-image: url('@{icon-path}icon-close.png');
+
+        cursor: pointer;
+        z-index: 3001;
+    }
+}
+
+.modal-backdrop {
+    background-color: #fff !important;
+}
+
+#xitemModal {
+    .modal-content {
+        border-radius: 4px;
+        border: #ddd solid 1px;
+        .box-shadow(0, 0, 2px, 1px, rgba(0,0,0,0.1));
+    }
+
+    .modal-header, .modal-body {
+        padding: 10px;
+    }
+
+    .modal-header {
+        font-family: 'Montserrat';
+        font-weight: normal;
+        font-size: 18px;
+    }
+
+    .modal-body {
+
+        .xbtmbuffer {
+            float: none;
+            clear: both;
+            padding-bottom: (@icon-height * 2);
+
+            .xend {
+                float: none;
+                padding: 1px;
+            }
+        }
+
+        .xrestaurant, .ximage, .xtitle, 
+        .xfriends, .xsbuttons,
+        .xdesc, .xnewreview, .xreviews {
+            float: none;
+            margin-bottom: 10px;
+        }
+
+        .xrestaurant {
+            font-size: 14px;
+            font-weight: bold;
+            color: #FF5722;
+        }
+
+        .ximage {
+            height: @img-height;
+            background-color: #80D8FF;
+            overflow: hidden;
+            img {
+                width: 100%;
+            }
+        }
+
+        .xtitle {
+            font-family: 'Montserrat';
+            font-weight: normal;
+            font-size: 18px;
+            padding-bottom: 4px;
+            margin-bottom: 8px;
+        }
+
+        .xsbuttons {
+            .c-fx;
+            margin-bottom: 10px;
+
+            .xsocial {
+                .c-fx;
+                float: left;
+
+                .xslabel {
+                    .c-fx;
+                    float: none;
+                    font-size: 14px;
+                    line-height: 1;
+                    color: #999;
+                    margin-bottom: 4px;
+                }
+
+                .xfb, .xtw {
+                    float: left;
+                    width: (@lick-height - 18px - 2px);
+                    height: (@lick-height - 18px - 2px);
+                    padding: 1px;
+                    color: #444;
+                    cursor: pointer;
+                    border-radius: 4px;
+
+                    & > i {
+                        display: block;
+                        font-size: 28px;
+                    }
+
+                    &:hover {
+                        background-color: #eee;
+                    }
+                }
+
+                .xfb {
+                    color: #3A5795;
+                }
+
+                .xtw {
+                    color: #59ADEB;
+                }
+            }
+
+            .xlickbar {
+                float: right;
+                background-color: #eee;
+                border-radius: 4px;
+
+                .xlick {
+                    .xlickfn();
+                    float: left;
+                    border-top-right-radius: 0;
+                    border-bottom-right-radius: 0;
+                }
+                .xnumlicks {
+                    font-size: 24px;
+                    height: @lick-height;
+                    font-weight: bold;
+                    float: left;
+                    padding: 14px 12px;
+                    border-left: #ddd solid 1px;
+                }
+            }
+        }
+
+        .xfriends, .xdesc, .xnewreview, .xreviews {
+            clear: both;
+            float: none;
+            padding-top: 10px;
+        }
+
+        .xfriends {
+            .xfriendslabel {
+                float: none;
+                font-size: 14px;
+                line-height: 1;
+                color: #999;
+                margin-bottom: 4px;
+            }
+
+            .xfriendslist {
+                float: none;
+                clear: both;
+            }
+        }
+
+       .xdesc, .xreviews {
+            border-top: #eee solid 1px;
+        }
+
+        .xsubmit-wrapper {
+            .c-fx;
+            float: none;
+
+            .xsubmittext {
+                float: left;
+                margin-top: 10px;
+                color: #777;
+
+                font-size: 14px;
+                font-style: italic;
+
+            }
+
+            button {
+                float: right;
+                margin-top: 10px;
+            }
+        }
+
+        .xreviews {
+            .xreviewitem {
+                .c-fx;
+                padding: 5px 0;
+                margin-bottom: 10px;
+
+                .xpicture {
+                    float: left;
+                    margin: 3px;
+                    width: 44px;
+                    height: 44px;
+                    background-color: #F8BBD0;
+                }
+
+                .xtext {
+                    float: none;
+                    margin-left: 60px;
+
+                    .xuser {
+                        .ep;
+                        font-size: 14px;
+                        color: #3A5795;
+                        margin-bottom: 4px;
+                    }
+
+                    .xreviewcontent {
+
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.xfriendslist {
+    img {
+        border-radius: 100%;
+    }
+}

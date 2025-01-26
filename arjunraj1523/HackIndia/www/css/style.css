@@ -1,0 +1,105 @@
+/* Empty. Add your own CSS if you like */
+.wrap {
+  width: 90%;
+  max-width: 70em;
+  margin: 0 auto;
+}
+.intro-bg {
+  background: -webkit-linear-gradient(rgba(255,93,22,0.6) 50%, rgba(70,255,118,0.6));
+  background: linear-gradient(rgba(255,93,22,0.6) 50%, rgba(70,255,118,0.6));
+  position: absolute;
+  top: 4em;
+  left: 0em;
+  right: 4em;
+  bottom: 40%;
+    width:100%;
+}
+.intro-content {
+  background: rgba(255,255,255,0.95);
+  position: absolute;
+  padding: 3em;
+  top: 1.5em;
+  left: 1.5em;
+  right: 1.5em;
+  bottom: 1.5em;
+}
+.intro__title img {
+  width: 100%;
+  display: block;
+}
+
+.intro__subtitle {
+    margin: -0.25em 0 0;
+  background: -webkit-linear-gradient(#F96226, #323232);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.intro__tagline {
+  font-size: 1.2em;
+  margin: 1.5em 0;
+  line-height: 1.5;
+}
+.intro {
+  height: 50em;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background: url("../img/download.png");
+  text-align: center;
+  position: relative;
+  width: 104%;
+  margin: -10px -10px 0px;
+}
+.countdown1{
+    font-weight:400;
+    color: rgb(60, 144, 14);
+}
+.countdown2{
+    font-weight:400;
+    color: rgb(60, 144, 14);
+}
+    
+.header-item{
+text-align: center !important;
+}
+
+ion-tabs.tabs-color-active-positive .tab-item.tab-item-active, ion-tabs.tabs-color-active-positive .tab-item.active, ion-tabs.tabs-color-active-positive .tab-item.activated {
+  color: #FD6F2C;
+}
+#week1,#week2{
+    color: #FD6F2C;
+}
+#day1,#day2{
+    color: #FD6F2C;
+}
+#timeRow{
+    margin-left: -50px;
+    width: 300px;
+}
+#floorLayout{
+  width: 102%;
+  height: 76%;
+}
+.sponsor{
+  width: 100%;
+  height: 100%;
+}
+#sponsorRow{
+padding-top: 20px;
+}
+.col{
+  margin: 10px 10px 10px 10px;
+
+}
+.webPage{
+  width: 100%;
+  height: 100%;
+  border: 2px solid #EAAB00;
+
+}
+ion-content div.scroll{
+  height: 90%; 
+}
+.card{
+    margin-top: -1px;
+    margin-bottom: 10px;
+}

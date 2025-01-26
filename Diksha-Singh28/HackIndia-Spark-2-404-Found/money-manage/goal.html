@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goal Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        header, footer {
+            width: 100%;
+            background-color: #41235f;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            z-index: 1000;
+        }
+        .header-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: white;
+            color: black;
+            height: 60px;
+            padding: 0 20px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+
+        header {
+            top: 0;
+        }
+
+        footer {
+            bottom: 0;
+        }
+
+        .container {
+            margin-top: 70px; /* Adjusted to account for the fixed header */
+            margin-bottom: 50px; /* Adjusted to account for the fixed footer */
+            text-align: center;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        input {
+            display: block;
+            width: calc(100% - 22px);
+            margin: 10px auto;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #41235f;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #41235f;
+        }
+
+        .chart-container {
+            width: 100%;
+            max-width: 500px;
+            margin: 20px auto;
+        }
+
+        .goal-item {
+            margin-bottom: 20px;
+        }
+
+        
+
+        .custom-footer {
+  background-color: #41235f;;
+  color: white;
+  padding: 32px 16px;
+}
+
+.custom-footer a {
+  color: black;
+}
+
+.custom-footer a:hover {
+  text-decoration: underline;
+}
+
+.custom-footer .contact-info {
+  margin-bottom: 24px;
+}
+
+.custom-footer .w3-button {
+  margin-top: 16px;
+}
+.header-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Space between logo and buttons */
+    background-color: white;
+    color: black;
+    height: 60px; /* Fixed height of the header bar */
+    padding: 0 20px; /* Add some horizontal padding for spacing */
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    height: 50px; /* Adjust the logo height if needed */
+}
+.logo-heading {
+            font-size: 32px; /* Make the size of "MoneyManager" bigger */
+            font-weight: bold;
+            margin-left: 10px;
+            color: #41235f; /* Lavender color for the logo heading */
+            
+            border: none; /* Remove any potential border causing the underline effect */
+        }
+
+.w3-right {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Add space between buttons */
+}
+
+.lavender-button {
+    background-color: #41235f;
+    color: white;
+    padding: 5px 10px; /* Smaller size buttons */
+    border-radius: 8px; /* Slight curve on the buttons */
+    font-size: 14px; /* Adjust font size for smaller buttons */
+    transition: background-color 0.3s, color 0.3s;
+    text-decoration: none; /* Remove underline from links */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lavender-button:hover {
+    background-color: rgb(217, 164, 243);
+    color: black;
+}
+    </style>
+</head>
+<body>
+    <div class="header-bar" id="myNavbar">
+        <a href="#home" class="w3-bar-item logo-container">
+            <img src="logo.png" alt="LOGO" class="logo-img">
+            <span class="logo-heading">SERVICES</span>
+        </a>
+        <div class="w3-right">
+            <a href="exp1.html" class="lavender-button">ABOUT US</a>
+            <a href="features.html" class="lavender-button">SERVICES</a>
+            <a href="help1.html" class="lavender-button">HELP CENTER</a>
+            <a href="#contact" class="lavender-button">CONTACT US</a>
+            <a href="login.html" class="lavender-button">
+                <i class="fa fa-sign-in" style="font-size: 24px;"></i> LOGIN
+            </a>
+        </div>
+        <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+    
+    <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+        <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
+        <a href="exp1.html" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT</a>
+        <a href="features.html" onclick="w3_close()" class="w3-bar-item w3-button">FEATURES</a>
+        <a href="#pricing" onclick="w3_close()" class="w3-bar-item w3-button">SERVICES</a>
+        <a href="#help" onclick="w3_close()" class="w3-bar-item w3-button">HELP CENTER</a>
+        <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT US</a>
+    </nav>
+
+    <div class="container">
+        <h2>Track Your Goals</h2>
+        <form id="goal-form">
+            <label for="goal">Goal Description:</label>
+            <input type="text" id="goal" name="goal" required>
+            
+            <label for="totalAmount">Total Goal Amount:</label>
+            <input type="number" id="totalAmount" name="totalAmount" required>
+
+            <label for="savedAmount">Saved Amount:</label>
+            <input type="number" id="savedAmount" name="savedAmount" required>
+
+            <button type="submit">Add Goal</button>
+        </form>
+
+        <button id="reset-button">Reset All Goals</button>
+
+        <div id="goals-container"></div>
+    </div>
+
+    <footer>
+        <a href="#home" class="w3-button w3-light-grey">
+            <i class="fa fa-arrow-up w3-margin-right"></i>To the top
+        </a>
+        <p>&copy; 2024 Money Manager. All rights reserved.</p>
+        
+    </footer>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        let goals = [];
+
+        function createChart(goalId, savedAmount, totalAmount) {
+            const ctx = document.getElementById(`goalChart-${goalId}`).getContext('2d');
+
+            return new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Saved', 'Remaining'],
+                    datasets: [{
+                        data: [savedAmount, totalAmount - savedAmount],
+                        backgroundColor: ['#36a2eb', '#ff6384'],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const label = context.label || '';
+                                    if (label) {
+                                        return `${label}: ₹${context.raw}`;
+                                    }
+                                    return '';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function renderGoals() {
+            const goalsContainer = document.getElementById('goals-container');
+            goalsContainer.innerHTML = '';
+
+            goals.forEach((goal, index) => {
+                const goalItem = document.createElement('div');
+                goalItem.classList.add('goal-item');
+                goalItem.innerHTML = `
+                    <h3>${goal.description}</h3>
+                    <div class="chart-container">
+                        <canvas id="goalChart-${index}"></canvas>
+                    </div>
+                `;
+                goalsContainer.appendChild(goalItem);
+                createChart(index, goal.savedAmount, goal.totalAmount);
+            });
+        }
+
+        document.getElementById('goal-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const goalDescription = document.getElementById('goal').value;
+            const totalAmount = parseFloat(document.getElementById('totalAmount').value);
+            const savedAmount = parseFloat(document.getElementById('savedAmount').value);
+
+            goals.push({ description: goalDescription, totalAmount, savedAmount });
+
+            renderGoals();
+
+            document.getElementById('goal-form').reset();
+        });
+
+        document.getElementById('reset-button').addEventListener('click', function() {
+            const confirmation = confirm('Are you sure you want to reset all goals? This action cannot be undone.');
+            if (confirmation) {
+                goals = [];
+                document.getElementById('goals-container').innerHTML = '';
+            }
+        });
+    </script>
+</body>
+</html>

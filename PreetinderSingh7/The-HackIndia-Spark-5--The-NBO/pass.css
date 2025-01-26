@@ -1,0 +1,94 @@
+.card {
+  margin-bottom: 20px;
+}
+
+#alert {
+  display: none;
+}
+
+body {
+  background-color: #f9f9f9;
+}
+
+.navbar {
+  background-color: #343a40;
+}
+
+.navbar-brand,
+.nav-link,
+.form-control,
+.btn {
+  color: #ffc107 !important;
+}
+
+.jumbotron {
+  background-color: #9e7bc7;
+  color: #ffc107;
+}
+
+.btn-primary {
+  background-color: #9e7bc7;
+  border-color: #ffc107;
+}
+.logo-img {
+  max-width: 50px;
+  height: auto;
+}
+@keyframes fadeIn {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+.card-animation {
+  animation: fadeIn 0.5s;
+}
+.card {
+  margin-bottom: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+.login-section {
+  text-align: center;
+  margin-top: 50px;
+}
+.login-icons img {
+  width: 50px;
+  height: 50px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.login-section, .link-section {
+  text-align: center;
+  margin-top: 50px;
+}
+.login-icons img, .link-icons img {
+  width: 50px;
+  height: 50px;
+  margin: 10px;
+  cursor: pointer;
+}
+.link-icon {
+  display: inline-block;
+  margin: 10px;
+  text-align: center;
+}
+.link-icon img {
+  width: 50px;
+  height: 50px;
+}
+.delete-icon {
+  cursor: pointer;
+  color: red;
+  font-size: 20px;
+  position: relative;
+  top: -10px;
+}

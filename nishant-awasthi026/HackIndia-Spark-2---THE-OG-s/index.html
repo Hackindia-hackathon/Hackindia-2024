@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
+    <title>Rescue+</title>
+</head>
+<body>
+    <div id="nav">
+        <h1>Rescue+</h1>
+        <h2>Connection</h2>
+        <h2>About</h2>
+       <span> <h2>Insurance</h2>
+        <h2><i class="ri-menu-line"></i></h2> </span>
+    </div>
+    <video loop autoplay muted src="https://cdn.pixabay.com/video/2018/02/27/14560-258207713_tiny.mp4"></video>
+    <img src="ethereum-eth-logo.png" id="cursor" alt="">
+    <div id="main">
+        <div id="part1">
+            <h1>Innovative IoT platform designed to keep you safe in emergencies! Whether it’s a <span>fire alert</span> or a <span>toxic gas warning</span>, Resue+ ensures you’re always <span>Ethereum-Based Policy Claims.</span></h1>
+            <h5>The platform provides real-time alerts, allowing you to act quickly to protect yourself and your loved ones. In the event of an emergency, Resue+ sends you an automated email with a pre-saved message and an exit map, guiding you to safety. Additionally, Resue+ integrates with Ethereum blockchain technology, enabling seamless filing and tracking of insurance claims. This feature ensures transparency and security, making the claims process faster and more reliable. With Resue+, you can rest easy knowing that your safety is our top priority. Stay connected, stay safe.</h5>
+            <div id="icons">
+                <i class="ri-youtube-fill"></i>
+                <i class="ri-twitter-x-fill"></i>
+                <i class="ri-discord-fill"></i>
+                <i class="ri-mail-fill"></i>
+                <i class="ri-instagram-fill"></i>
+            </div>
+        </div>
+        <div id="part2">
+            <div id="feature1" class="box">
+                <div class="half-box" id="device1">
+                    <div class="numbox" id="temp">
+                        <h6>*tempreture sensor</h6>
+                        <h1 id="temp-data" >NA</h1>
+                        <h6>*status : <span id="tep-status">!</span></h6>
+                    </div>
+                    <label class="switch">
+                        <input id="temp-btn" type="checkbox">
+                        <span class="slider round"></span>
+                      </label>
+                </div>
+                <div class="half-box" id="device2">
+                    <div class="numbox" id="gas">
+                        <h6>*gas sensor</h6>
+                        <h1 id="gas-data" >NA</h1>
+                        <h6>*status : <span id="gas-status">!</span></h6>
+
+                    </div>
+                    <label class="switch">
+                        <input id="gas-btn" type="checkbox">
+                        <span class="slider round"></span>
+                      </label>
+                </div>
+            </div>
+            
+            <div id="feature2" class="box">
+                <div class="upload-btn-wrapper">
+                    <button class="btn">Upload a file Like Map Or Exit Plan</button>
+                    <input type="file" name="myfile" />
+                </div>
+                <textarea name="" id="" placeholder="Leave Message"></textarea>
+            </div>
+        </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

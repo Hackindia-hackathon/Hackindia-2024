@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supply Chain DApp</title>
+    <script src="https://cdn.jsdelivr.net/npm/web3/dist/web3.min.js"></script>
+</head>
+<body>
+    <h1>Supply Chain DApp</h1>
+    <input type="text" id="productName" placeholder="Product Name">
+    <input type="text" id="productStatus" placeholder="Product Status">
+    <button onclick="addProduct()">Add Product</button>
+
+    <h2>Update Product Status</h2>
+    <input type="number" id="productId" placeholder="Product ID">
+    <input type="text" id="newStatus" placeholder="New Status">
+    <button onclick="updateProductStatus()">Update Status</button>
+
+    <script>
+        const contractAddress = '0x9E8e061E5Ec4BDE36985c863ED892673cc6eCA83';
+        const abi = [
+            // ABI goes here (You can obtain it from Remix or your build process)
+        ];
+
+        let web3;
+        let supplyChainContract;
+
+        window.onload = async () => {
+            if (window.ethereum) {
+                web3 = new Web3(window.ethereum);
+                await window.ethereum.request({ method: 'eth_requestAccounts' });
+                supplyChainContract = new web3.eth.Contract(abi, contractAddress);
+            } else {
+                alert('Please install MetaMask!');
+            }
+        };
+
+        async function addProduct() {
+            const name = document.getElementById('productName').value;
+            const status = document.getElementById('productStatus').value;
+            const accounts = await web3.eth.getAccounts();
+
+            await supplyChainContract.methods.addProduct(name, status).send({ from: accounts[0] });
+            alert('Product added!');
+        }
+
+        async function updateProductStatus() {
+            const id = document.getElementById('productId').value;
+            const status = document.getElementById('newStatus').value;
+            const accounts = await web3.eth.getAccounts();
+
+            await supplyChainContract.methods.updateProductStatus(id, status).send({ from: accounts[0] });
+            alert('Product status updated!');
+        }
+    </script>
+</body>
+</html>

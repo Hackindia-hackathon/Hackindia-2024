@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlimBit</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styling.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="my-4">GlimBit</h1>
+        <p class="para">Generate unique images using our AI model. Adjust the truncation value to control the creativity
+            of the
+            generated images.</p>
+        <button id="connectButton">Connect to MetaMask</button>
+        <div class="form-group">
+            <label for="truncation">Truncation:</label>
+            <input type="text" id="truncation" class="form-control" placeholder="Enter truncation value (e.g., 0.4)">
+        </div>
+        <button id="displayButton">Generate</button>
+        <div class="result">
+            <img id="generatedImage"
+                src="http://bafybeibmjy44gf7vsudj6ole43ye37c5k6k256jsyg3ao7ke36ue3esa5y.ipfs.localhost:8080/"
+                alt="Generated Image" class="img-fluid">
+            <div id="loading" class="loading">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+                <p>Generating image...</p>
+                <p id="errorMessage" class="text-danger"></p>
+            </div>
+
+        </div>
+
+        <script src="script.js"></script>
+</body>
+
+</html>

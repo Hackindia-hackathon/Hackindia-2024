@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Acme Finance</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="flex flex-col min-h-screen">
+        <header class="px-4 lg:px-6 h-14 flex items-center">
+            <a href="index.html" class="flex items-center justify-center">
+                <img src="https://via.placeholder.com/24" alt="Acme Finance Logo" class="h-6 w-6">
+                <span class="ml-2 text-lg font-semibold">Acme Finance</span>
+            </a>
+        </header>
+        <main class="flex-1 flex items-center justify-center bg-gray-100">
+            <div class="w-full max-w-md p-8 space-y-6 bg-white rounded-lg shadow-md">
+                <h1 class="text-2xl font-bold text-center">Create an Account</h1>
+                <form id="signupForm" class="space-y-4">
+                    <div class="space-y-2">
+                        <label for="fullName" class="text-sm font-medium">Full Name</label>
+                        <input id="fullName" name="fullName" type="text" required class="w-full px-3 py-2 border rounded-md" />
+                    </div>
+                    <div class="space-y-2">
+                        <label for="email" class="text-sm font-medium">Email</label>
+                        <input id="email" name="email" type="email" required class="w-full px-3 py-2 border rounded-md" />
+                    </div>
+                    <div class="space-y-2">
+                        <label for="password" class="text-sm font-medium">Password</label>
+                        <input id="password" name="password" type="password" required class="w-full px-3 py-2 border rounded-md" />
+                    </div>
+                    <div class="space-y-2">
+                        <label for="confirmPassword" class="text-sm font-medium">Confirm Password</label>
+                        <input id="confirmPassword" name="confirmPassword" type="password" required class="w-full px-3 py-2 border rounded-md" />
+                    </div>
+                    <div id="signupError" class="text-red-500 text-sm hidden"></div>
+                    <button type="submit" class="w-full btn btn-primary">Sign Up</button>
+                </form>
+                <div class="text-center">
+                    <a href="login.html" class="text-sm text-blue-600 hover:underline">Already have an account? Log in</a>
+                </div>
+            </div>
+        </main>
+        <footer class="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
+            <p class="text-xs text-gray-500">© 2024 Acme Finance Inc. All rights reserved.</p>
+        </footer>
+    </div>
+    <script src="auth.js"></script>
+</body>
+</html>

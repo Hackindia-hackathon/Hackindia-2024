@@ -1,0 +1,251 @@
+/* Basic Reset */
+body,
+h1,
+h2,
+p,
+ul,
+li,
+input,
+textarea,
+button,
+a {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: #0b0c10;
+    color: #dcdcdc;
+    font-size: 16px;
+    background-image: url('pawel-nolbert-4u2U8EO9OzY-unsplash - Copy.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    overflow-x: hidden;
+}
+
+header {
+    background-color: #1b1c1d;
+    padding: 10px 20px;
+    border-bottom: 1px solid #2d2e30;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a,
+#connect {
+    color: #4dd2ff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover,
+#connect:hover {
+    color: #dcdcdc;
+}
+
+#connect {
+    background: none;
+    border: 2px solid #4dd2ff;
+    padding: 5px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#connect:hover {
+    background-color: #4dd2ff;
+    color: #0b0c10;
+}
+
+section {
+    padding: 50px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#home {
+    text-align: center;
+}
+
+#home h1 {
+    font-size: 3rem;
+    color: #a169c7;
+    text-shadow: 0 0 10px #000, 0 0 20px #a169c7;
+}
+
+#home p {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    color: #b5b5b5;
+}
+
+#home #get-started {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: linear-gradient(90deg, #35468b, #5c67f2);
+    border: none;
+    border-radius: 5px;
+    color: #f5f5f5;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#home #get-started:hover {
+    background: linear-gradient(90deg, #5c67f2, #35468b);
+}
+
+.capsule-section h2 {
+    color: #4dd2ff;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px #000, 0 0 20px #4dd2ff;
+}
+
+.capsule-section input,
+.capsule-section textarea,
+.capsule-section button {
+    display: block;
+    width: calc(100% - 20px);
+    margin: 10px auto;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    background-color: #1f1f1f;
+    color: #dcdcdc;
+    transition: border 0.3s ease;
+}
+
+.capsule-section input:focus,
+.capsule-section textarea:focus {
+    border: 1px solid #4dd2ff;
+}
+
+.capsule-section textarea {
+    resize: vertical;
+    height: 100px;
+}
+
+.capsule-section button {
+    background-color: #4dd2ff;
+    color: #0b0c10;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.capsule-section button:hover {
+    background-color: #a169c7;
+}
+
+.manage-list .manage-item {
+    border: 1px solid #2d2e30;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: #1b1c1d;
+    transition: border 0.3s ease;
+}
+
+.manage-list .manage-item h3 {
+    margin-bottom: 10px;
+    color: #6a5df8;
+}
+
+.manage-list .manage-item p {
+    margin-bottom: 10px;
+    color: #b5b5b5;
+}
+
+.manage-list .manage-item .view-button {
+    background-color: #2d2e30;
+    color: #4dd2ff;
+    border: 1px solid #4dd2ff;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.manage-list .manage-item .view-button:hover {
+    background-color: #4dd2ff;
+    color: #0b0c10;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(11, 12, 16, 0.95);
+}
+
+.modal-content {
+    background-color: #1b1c1d;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #4dd2ff;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+    color: #dcdcdc;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#modal-title,
+#modal-description,
+#modal-recipient,
+#modal-date,
+#modal-file {
+    margin-bottom: 15px;
+}
+
+#modal-file a {
+    color: #4dd2ff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+#modal-file a:hover {
+    color: #a169c7;
+    text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #1b1c1d;
+    color: #b5b5b5;
+    border-top: 1px solid #2d2e30;
+}

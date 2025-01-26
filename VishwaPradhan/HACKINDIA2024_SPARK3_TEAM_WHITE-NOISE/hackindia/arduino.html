@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Force Sensor</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Microcontroller</title>
+</head>
+<body>
+    <div id="main">
+        <nav>
+            <a href="#">E-KICK</a>
+            <div class="cntr-nav">
+                <a href="index.html">Home</a>
+                <a href="#">Shop</a>
+                <a href="#">Contact</a>
+            </div>
+            <i class="ri-menu-fill"></i>
+        </nav>
+        <div class="one">
+            <h1>E-KICK</h1>
+            <img id="fanta" src="arduino-removebg-preview.png" alt="">
+        </div>
+        <div class="two1">
+            <div class="lft-two1">
+            </div>
+            <div class="rght-two1">
+                <h1>How The Force Sensor Works?</h1>
+                <p>The microcontroller, such as an Arduino, plays a central role in working with the force sensor to capture, process, and output data. Here's a step-by-step explanation of how the microcontroller interacts with the force sensor:
+
+                    1. Sensor Integration:
+                    Connection: The force sensor is physically connected to the microcontroller through its input pins. For a load cell, this might involve using an analog-to-digital converter (ADC) or a dedicated amplifier like an HX711 module, which amplifies the small voltage changes from the load cell to a level the Arduino can read. For a force-sensitive resistor (FSR), the sensor is typically connected directly to the analog input pin of the Arduino. <br><br>
+                    2. Signal Reading:
+                    Voltage Output: When the force sensor detects a strike or pressure, it changes its electrical resistance (in the case of an FSR) or produces a small voltage signal (in the case of a load cell). 
+                    Analog Signal Conversion: The microcontroller reads this signal as an analog voltage, which is proportional to the force applied. For instance, an FSR's resistance decreases as force increases, leading to an increase in the voltage that the microcontroller detects. <br><br>
+                    3. Data Processing:
+                    Analog-to-Digital Conversion: The Arduino microcontroller converts the analog signal from the sensor into a digital value using its onboard ADC. This conversion is necessary because microcontrollers operate in a digital realm, meaning they process data as discrete values (usually in a range from 0 to 1023 for a 10-bit ADC in Arduino).
+                    Calibration: The microcontroller may need to calibrate the sensor readings to correlate the digital values to actual force measurements. This often involves defining a relationship between the sensor output and known force values. <br> <br>
+                    4. Data Analysis:
+                    Force Calculation: Once the sensor data is converted to a digital value, the microcontroller can apply algorithms or formulas to translate this value into a meaningful force measurement, typically in newtons.
+                    Real-Time Processing: The Arduino can continuously read and process data, enabling it to track forces in real-time as the athlete strikes the pad. This allows for immediate feedback on the force of each strike. <br><br>
+                    5. Output and Feedback:
+                    Data Display: The processed force data can be displayed on an LCD screen, sent to a computer via serial communication, or logged onto a storage device like an SD card. This provides instant feedback to the user or can be analyzed later.
+                    Triggering Actions: The microcontroller can also trigger actions based on the force data, such as lighting up LEDs, emitting sounds, or vibrating the pad when a specific force threshold is reached, adding an interactive element to the training. <br><br>
+                    6. Communication:
+                    External Communication: The microcontroller can send data wirelessly (e.g., via Bluetooth or Wi-Fi) to other devices or apps for further analysis, enabling remote monitoring or integration with larger training systems.</p>
+            </div>
+        </div>
+        <div class="copyright1">
+            <p>Copyright @WhiteNoise</p>
+        </div>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" integrity="sha512-Ic9xkERjyZ1xgJ5svx3y0u3xrvfT/uPkV99LBwe68xjy/mGtO+4eURHZBW2xW4SZbFrF1Tf090XqB+EVgXnVjw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+</body>
+</html>

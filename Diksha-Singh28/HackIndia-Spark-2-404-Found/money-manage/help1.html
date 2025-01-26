@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Center - Money Management</title>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .faq, .contact, .helpful-links {
+            margin-bottom: 30px;
+        }
+
+        .faq h2, .contact h2, .helpful-links h2 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+        }
+
+        .faq-question {
+            width: 100%;
+            background-color: #41235f;
+            color: white;
+            padding: 15px;
+            font-size: 1em;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+            outline: none;
+            transition: background-color 0.3s;
+        }
+
+        .faq-question:hover {
+            background-color: #41235f;
+        }
+
+        .faq-answer {
+            background-color: #f9f9f9;
+            padding: 15px;
+            display: none;
+            border-left: 3px solid #41235f;
+        }
+
+        .faq-answer p {
+            margin: 0;
+        }
+
+        .contact form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact label {
+            margin-bottom: 5px;
+        }
+
+        .contact input, .contact textarea {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .contact button {
+            padding: 10px 15px;
+            background-color: #41235f;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .contact button:hover {
+            background-color: #41235f;
+        }
+
+        .helpful-links ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .helpful-links li {
+            margin-bottom: 10px;
+        }
+
+        .helpful-links a {
+            color: #41235f;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .helpful-links a:hover {
+            color: #41235f;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .faq-question {
+                font-size: 0.9em;
+                padding: 10px;
+            }
+
+            .faq-answer {
+                font-size: 0.9em;
+                padding: 10px;
+            }
+
+            .contact label, .contact input, .contact textarea {
+                font-size: 0.9em;
+            }
+
+            .contact button {
+                font-size: 0.9em;
+                padding: 8px 12px;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            h2 {
+                font-size: 1.2em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .faq-question {
+                font-size: 0.8em;
+                padding: 8px;
+            }
+
+            .faq-answer {
+                font-size: 0.8em;
+                padding: 8px;
+            }
+
+            .contact label, .contact input, .contact textarea {
+                font-size: 0.8em;
+            }
+
+            .contact button {
+                font-size: 0.8em;
+                padding: 6px 10px;
+            }
+
+            h1 {
+                font-size: 1.2em;
+            }
+
+            h2 {
+                font-size: 1em;
+            }
+        }
+        .header-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Space between logo and buttons */
+    background-color: white;
+    color: black;
+    height: 60px; /* Fixed height of the header bar */
+    padding: 0 20px; /* Add some horizontal padding for spacing */
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    height: 50px; /* Adjust the logo height if needed */
+}
+.logo-heading {
+            font-size: 32px; /* Make the size of "MoneyManager" bigger */
+            font-weight: bold;
+            margin-left: 10px;
+            color: #41235f; /* Lavender color for the logo heading */
+            
+            border: none; /* Remove any potential border causing the underline effect */
+        }
+
+.w3-right {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Add space between buttons */
+}
+
+.lavender-button {
+    background-color: #41235f;
+    color: white;
+    padding: 5px 10px; /* Smaller size buttons */
+    border-radius: 8px; /* Slight curve on the buttons */
+    font-size: 14px; /* Adjust font size for smaller buttons */
+    transition: background-color 0.3s, color 0.3s;
+    text-decoration: none; /* Remove underline from links */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lavender-button:hover {
+    background-color: rgb(217, 164, 243);
+    color: black;
+}
+
+ .footer {
+            background-color: #41235f;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+         .footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+     .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="w3-top">
+        <div class="header-bar" id="myNavbar">
+            <!-- Left side: Logo and heading -->
+            <a href="#home" class="w3-bar-item logo-container">
+                <img src="logo.png" alt="LOGO" class="logo-img" >
+                <span class="logo-heading" >MoneyManager</span>
+            </a>
+            
+            
+            <!-- Right side: Buttons -->
+            <div class="w3-right">
+                <a href="#about" class="lavender-button">ABOUT US</a>
+                <a href="features.html" class="lavender-button">SERVICES</a>
+                <a href="help1.html" class="lavender-button">HELP CENTER</a>
+                <a href="#contact" class="lavender-button">CONTACT US</a>
+                
+                <!-- Login link added here -->
+                <a href="login.html" class="lavender-button">
+                    <i class="fa fa-sign-in" style="font-size: 24px;"></i> LOGIN
+                </a>
+            </div>
+        
+            <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+            <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+    </div>
+    
+    
+    
+    <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+        <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
+        <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT</a>
+        <a href="features.html" onclick="w3_close()" class="w3-bar-item w3-button">FEATURE</a>
+        <a href="#pricing" onclick="w3_close()" class="w3-bar-item w3-button">SERVICES</a>
+        <a href="#help" onclick="w3_close()" class="w3-bar-item w3-button">HELP CENTER</a>
+        <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT US</a>
+    </nav>
+    
+
+  
+
+<nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
+  <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT</a>
+ <a href="#Work" onclick="w3_close()" class="w3-bar-item w3-button">FEATURE</a>
+  <a href="#pricing" onclick="w3_close()" class="w3-bar-item w3-button">SERVICES</a>
+  <a href="#help" onclick="w3_close()" class="w3-bar-item w3-button">HELP CENTER</a>
+  <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT US</a>
+</nav>
+    <div class="container">
+        <header>
+            <h1>Help Center</h1>
+            <p>Get help and find answers to your questions about our money management services.</p>
+        </header>
+        <section class="faq">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <button class="faq-question">How do I create a budget?</button>
+                <div class="faq-answer">
+                    <p>To create a budget, navigate to the Budget section, click on "Create New Budget", and fill in your income and expenses details. Our tool will help you track and manage your budget effectively.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">How can I track my expenses?</button>
+                <div class="faq-answer">
+                    <p>You can track your expenses by linking your bank accounts to our platform. All transactions will be automatically categorized, and you can view detailed reports in the Expenses section.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">How do I set financial goals?</button>
+                <div class="faq-answer">
+                    <p>Go to the Goals section, click on "Set New Goal", and enter the details of your financial goal. You can set a target amount, timeframe, and track your progress towards achieving it.</p>
+                </div>
+            </div>
+        </section>
+        <section class="contact">
+            <h2>Contact Us</h2>
+            <form action="/submit_contact_form" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+                
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+        <section class="helpful-links">
+            <h2>Helpful Links</h2>
+            <ul>
+                <li><a href="#">How to use the Budget Tool</a></li>
+                <li><a href="#">Tips for Saving Money</a></li>
+                <li><a href="#">Understanding Credit Scores</a></li>
+                <li><a href="#">Investment Basics</a></li>
+            </ul>
+        </section>
+    </div>
+    <div class="footer">
+        <div id="contact">
+            <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+            <p>&copy; 2024 Money Manager. All rights reserved.</p>
+    </div>
+    <!-- <script src="scripts.js"></script> -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const questions = document.querySelectorAll('.faq-question');
+
+            questions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const answer = question.nextElementSibling;
+
+                    if (answer.style.display === 'block') {
+                        answer.style.display = 'none';
+                    } else {
+                        answer.style.display = 'block';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

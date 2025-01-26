@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALCHEMY Automation - Smart Home Automation</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+        <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <h1>ALCHEMY Automation</h1>
+            <p>Empowering Your Smart Home with Advanced Automation</p>
+        </div>
+    </header>
+
+    <nav>
+        <ul class="navbar">
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#features">Automation Features</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <section id="overview" class="section">
+        <div class="container">
+            <h2>Overview</h2>
+            <p>ALCHEMY is a next-generation smart home automation system built on Ethereum smart contracts, IPFS for
+                decentralized storage, and Matter IoT standards for device compatibility. Automate your home devices
+                securely, efficiently, and across different manufacturers.</p>
+        </div>
+    </section>
+
+    <section id="how-it-works" class="section">
+        <div class="container">
+            <h2>How ALCHEMY Automation Works</h2>
+            <p>ALCHEMY’s automation is powered by smart contracts on the Ethereum blockchain, providing tamper-proof
+                automation rules for all your smart home devices. Through a Web 3.0 interface, users can create, manage,
+                and execute automated tasks such as:</p>
+            <ul>
+                <li>Turn lights on or off at specific times or based on motion detection.</li>
+                <li>Control thermostats based on temperature or presence in the room.</li>
+                <li>Lock and unlock doors when certain conditions are met.</li>
+                <li>Trigger security cameras or alarms when unusual activity is detected.</li>
+            </ul>
+
+            <h3>Create Your Automation Rule:</h3>
+            <form id="automation-form">
+                <label for="device">Choose a Device:</label>
+                <select id="device">
+                    <option value="light">Light</option>
+                    <option value="thermostat">Thermostat</option>
+                    <option value="door">Door Lock</option>
+                    <option value="camera">Security Camera</option>
+                </select>
+
+                <label for="condition">Condition:</label>
+                <input type="text" id="condition" placeholder="e.g., At sunset">
+
+                <label for="action">Action:</label>
+                <input type="text" id="action" placeholder="e.g., Turn on the light">
+
+                <button type="button" onclick="createAutomation()">Create Rule</button>
+            </form>
+
+            <div id="automation-output"></div>
+        </div>
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Bulb Controller</title>
+    <!-- Include Ethers.js library via CDN -->
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            color: #333;
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #status {
+            font-size: 18px;
+            margin-top: 20px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>Smart Bulb Controller</h1>
+    <!-- Buttons to interact with the smart contract -->
+    <button onclick="turnBulbOn()">Turn On</button>
+    <button onclick="turnBulbOff()">Turn Off</button>
+    <button onclick="toggleBulb()">Toggle</button>
+    <button onclick="getBulbStatus()">Get Status</button>
+    <p id="status">Bulb Status: Unknown</p>
+
+    <script>
+        // Contract ABI and Address (replace with your own deployed contract values)
+        const abi = [
+            "function turnOn() public",
+            "function turnOff() public",
+            "function toggle() public",
+            "function getStatus() public view returns (bool)"
+        ];
+
+        // Replace with your smart contract's deployed address
+        const contractAddress = "YOUR_CONTRACT_ADDRESS"; // Example: "0x1234...5678"
+
+        // Ethereum provider, signer, and contract object
+        let provider;
+        let signer;
+        let bulbContract;
+
+        // Ensure MetaMask is available and connected
+        async function connectMetaMask() {
+            if (typeof window.ethereum !== 'undefined') {
+                console.log('MetaMask is installed!');
+                provider = new ethers.providers.Web3Provider(window.ethereum);
+                // Request access to MetaMask accounts
+                await provider.send("eth_requestAccounts", []); 
+                signer = provider.getSigner();
+                console.log('MetaMask connected:', await signer.getAddress());
+                // Initialize the contract
+                bulbContract = new ethers.Contract(contractAddress, abi, signer);
+                console.log('Connected to the smart contract at:', contractAddress);
+                // Update UI with current status
+                updateStatus();
+            } else {
+                alert('MetaMask is not installed! Please install MetaMask to use this application.');
+            }
+        }
+
+        // Function to turn the bulb on
+        async function turnBulbOn() {
+            try {
+                const tx = await bulbContract.turnOn();
+                await tx.wait(); // Wait for the transaction to be mined
+                alert("Bulb turned on!");
+                updateStatus(); // Update the UI with the latest status
+            } catch (error) {
+                console.error("Error turning bulb on:", error);
+                alert("Failed to turn on the bulb. Check console for details.");
+            }
+        }
+
+        // Function to turn the bulb off
+        async function turnBulbOff() {
+            try {
+                const tx = await bulbContract.turnOff();
+                await tx.wait();
+                alert("Bulb turned off!");
+                updateStatus(); // Update the UI with the latest status
+            } catch (error) {
+                console.error("Error turning bulb off:", error);
+                alert("Failed to turn off the bulb. Check console for details.");
+            }
+        }
+
+        // Function to toggle the bulb
+        async function toggleBulb() {
+            try {
+                const tx = await bulbContract.toggle();
+                await tx.wait();
+                alert("Bulb toggled!");
+                updateStatus(); // Update the UI with the latest status
+            } catch (error) {
+                console.error("Error toggling bulb:", error);
+                alert("Failed to toggle the bulb. Check console for details.");
+            }
+        }
+
+        // Function to get the current status of the bulb
+        async function getBulbStatus() {
+            try {
+                const status = await bulbContract.getStatus();
+                alert("Current Bulb Status: " + (status ? "On" : "Off"));
+                document.getElementById("status").innerText = "Bulb Status: " + (status ? "On" : "Off");
+            } catch (error) {
+                console.error("Error getting bulb status:", error);
+                alert("Failed to get bulb status. Check console for details.");
+            }
+        }
+
+        // Function to update the status text in the UI
+        async function updateStatus() {
+            try {
+                const status = await bulbContract.getStatus();
+                document.getElementById("status").innerText = "Bulb Status: " + (status ? "On" : "Off");
+            } catch (error) {
+                console.error("Error updating bulb status:", error);
+            }
+        }
+
+        // Connect to MetaMask when the page loads
+        window.onload = connectMetaMask;
+    </script>
+</body>
+</html>
+
+
+    </section>
+
+    <section id="features" class="section">
+        <div class="container">
+            <h2>Key Automation Features</h2>
+
+            <div class="feature-box">
+                <h3 onclick="toggleFeature(this)">Ethereum Smart Contracts for Automation</h3>
+                <p class="feature-content">Each automation rule is stored and executed using Ethereum smart contracts,
+                    ensuring tamper-proof interactions. Automate anything from lights, thermostats, and security cameras
+                    with full transparency and security.</p>
+            </div>
+
+            <div class="feature-box">
+                <h3 onclick="toggleFeature(this)">Web 3.0 Interface for Custom Automations</h3>
+                <p class="feature-content">Control your entire home from a decentralized Web 3.0 interface. Manage
+                    devices, set automation rules, and view logs of all activities from one platform.</p>
+            </div>
+
+            <div class="feature-box">
+                <h3 onclick="toggleFeature(this)">Cross-Device Compatibility with Matter Standard</h3>
+                <p class="feature-content">ALCHEMY supports the Matter IoT standard, allowing you to automate and
+                    control devices from different manufacturers without compatibility issues.</p>
+            </div>
+
+            <div class="feature-box">
+                <h3 onclick="toggleFeature(this)">Decentralized Storage with IPFS</h3>
+                <p class="feature-content">All automation logs and device data are securely stored on the InterPlanetary
+                    File System (IPFS), ensuring privacy and resilience with decentralized storage.</p>
+            </div>
+        </div>
+        
+        
+    </section>
+
+
+    <footer id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>Email: support@alchemy-automation.com</p>
+            <p>Phone: +1 (800) 555-5678</p>
+            <p>&copy; 2024 ALCHEMY Automation</p>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+
+</body>
+
+</html>

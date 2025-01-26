@@ -1,0 +1,107 @@
+<template name="MasterLayout">
+	{{> yield}}
+	{{> xtabs}}
+	{{> xmodals}}
+</template>
+
+<template name="xtabs">
+    <div class="xtabs">
+        <div class="xtabwrapper">
+            <a class="xtab g-sel" href="{{ pathFor "home" category="Beer" }}" data-show-id="Beer">
+                <div class="xicon beer"></div>
+            </a>
+            <a class="xtab" href="{{ pathFor "home" category="Burger" }}" data-show-id="Burger">
+                <div class="xicon burger"></div>
+            </a>
+            <a class="xtab" href="{{ pathFor "home" category="Biryani" }}" data-show-id="Biryani">
+                <div class="xicon biryani"></div>
+            </a>
+            <div class="xtab" href="{{ pathFor "home" category="Profile" }}" data-show-id="profile">
+                <div class="xicon me"></div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="xmodals">
+    <!-- Modal -->
+    <div class="modal fade" id="xitemModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+        {{ #with item }}
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="xrestaurant">{{ restaurant.name }}</div>
+                    <div class="ximage" style="background-image: url({{ getImage }}); background-size: cover;"></div>
+                    <div class="xtitle">{{ name }}</div>
+                    <div class="xsbuttons">
+                        <div class="xsocial">
+                            <div class="xslabel">Share on</div>
+                            <a href="https://www.facebook.com/sharer/sharer.php?u=http://slurrp.xyz/{{ type }}?item={{ _id }}" target="_blank"><div class="xfb"><i class="icon-facebook-squared"></i></div></a>
+                            <a href="https://twitter.com/home?status=http://slurrp.xyz/{{ type }}?item={{ _id }}%20{{ name }}%20at%20{{ restaurant.name }}%20%23slurrp" target="_blank"><div class="xtw"><i class="icon-twitter"></i></div></a>
+                        </div>
+                        <div class="xlickbar">
+                            {{ #if licked }}
+                                <div class="xlick e-licked unlick"></div>
+                            {{ else }}
+                                <div class="xlick lick"></div>
+                            {{ /if }}
+                            <div class="xnumlicks">{{ votes }}</div>
+                        </div>
+                    </div>
+                    <div class="cl-b"></div>
+                    <div class="xdesc">{{ description }}</div>
+                    <!-- hide following section if no friends -->
+                    <div class="xfriends">
+                        <div class="xfriendslabel">Friends who lick this</div>
+                        <div class="xfriendslist">
+                            {{ #if currentUser }}
+                                {{ #each friends }}
+                                    <img src="http://graph.facebook.com/{{ this }}/picture?type=square" />
+                                {{ /each }}
+                                {{ #unless friends }}
+                                    <i>No one yet :(</i>
+                                {{ /unless }}
+                            {{ else }}
+                                <a class="login">Sign in to view this</a>
+                            {{ /if }}
+                        </div>
+                    </div>
+                    <!-- // -->
+                    <div class="xnewreview">
+                        {{ #autoForm type="insert" collection="Review" id="insertCommentForm" }}
+                            {{ > afQuickField name="review" type="textarea" }}
+                            {{ > afQuickField name="item" type="hidden" value=_id }}
+                            <div class="xsubmit-wrapper">
+                                <div class="xsubmittext">max 160 chars</div>
+                                <button type="submit">Submit</button>
+                            </div>
+                        {{ /autoForm }}
+                    </div>
+                    <div class="xreviews">
+                        {{ #each reviews }}
+                            <div class="xreviewitem">
+                                <div class="xpicture">
+                                    <img src="http://graph.facebook.com/{{ user.fb }}/picture?type=square" />
+                                </div>
+                                <div class="xtext">
+                                    <div class="xuser">{{ user.name }}</div>
+                                    <div class="xreviewcontent">{{ review }}</div>
+                                </div>
+                            </div>
+                        {{ /each }}
+                        {{ #unless reviews }}
+                            <div>No reviews yet.</div>
+                        {{ /unless }}
+                    </div>
+                    <div class="xbtmbuffer">
+                        <div class="xend"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{ /with }}
+    </div>
+    <div class="floatingxbutton-wrapper">
+        <div class="floatingxbutton"><i class="lick-icons"></i></div>
+    </div>
+</template>

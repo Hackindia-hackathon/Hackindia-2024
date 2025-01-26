@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web3 DApp Enhanced</title>
+    <link rel="stylesheet" href="style1.css">
+    <!-- Use the latest version of web3.js -->
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Web3 DApp Example</h1>
+        <br>
+        <button id="connectButton" class="btn">Connect MetaMask</button>
+        <br>
+        <p id="accountDisplay">No account connected.</p>
+        <br>
+        <p id="networkDisplay">Network: Not connected</p>
+        <br>
+        <p id="balanceDisplay"></p>
+        <br>
+
+        <h2>Send Ether</h2>
+        <br>
+        <form id="sendEthForm" class="eth-form">
+            <input type="text" id="recipientAddress" placeholder="Recipient Address" required>
+            <input type="number" step="0.01" id="ethAmount" placeholder="Amount (ETH)" required>
+            <button type="submit" class="btn">Send</button>
+        </form>
+        <br>
+        <p id="transactionStatus"></p>
+
+        <h2>Transaction History</h2>
+        <button id="showHistoryButton" class="btn">Show Recent Transactions</button>
+        <ul id="transactionHistory" class="transaction-list"></ul>
+        <div><a class="btns" style="color: aliceblue; text-decoration: none;" href="pass.html">Go Back</a></div>
+    </div>
+    
+
+    <script src="app.js"></script>
+</body>
+
+</html>

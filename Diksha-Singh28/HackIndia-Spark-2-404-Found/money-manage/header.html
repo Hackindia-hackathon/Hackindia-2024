@@ -1,0 +1,152 @@
+<style>
+     /* Your CSS styles */
+     body, h1, h2, h3, h4, h5, h6 { font-family: "Raleway", sans-serif }
+        body, html { height: 100%; line-height: 1.8; }
+
+
+        .w3-bar .w3-button { padding: 16px; }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        
+
+        h1 { text-align: center; margin-bottom: 20px; }
+
+        form {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        form input, form select, form button {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+       
+
+        input {
+            margin: 10px;
+            padding: 10px;
+            width: 80%;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+
+        .about-section {
+            background-color: #41235f; /* Blue background */
+            color: white; /* White text */
+            padding: 128px 16px;
+        }
+
+        .about-section .w3-center {
+            color: white; /* Ensure white color for centered text */
+        }
+
+        .about-section img {
+            max-width: 150px;
+            width: 100%;
+        }
+
+        .about-section p {
+            color: white; /* White color for paragraph text */
+        }
+
+        .custom-footer {
+  background-color: #41235f;;
+  color: white;
+  padding: 32px 16px;
+}
+
+.custom-footer a {
+  color: black;
+}
+
+.custom-footer a:hover {
+  text-decoration: underline;
+}
+
+.custom-footer .contact-info {
+  margin-bottom: 24px;
+}
+
+.custom-footer .w3-button {
+  margin-top: 16px;
+}
+.header-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Space between logo and buttons */
+    background-color: white;
+    color: black;
+    height: 60px; /* Fixed height of the header bar */
+    padding: 0 20px; /* Add some horizontal padding for spacing */
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    height: 50px; /* Adjust the logo height if needed */
+}
+.logo-heading {
+            font-size: 32px; /* Make the size of "MoneyManager" bigger */
+            font-weight: bold;
+            margin-left: 10px;
+            color: #41235f; /* Lavender color for the logo heading */
+            
+            border: none; /* Remove any potential border causing the underline effect */
+        }
+
+.w3-right {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Add space between buttons */
+}
+
+.lavender-button {
+    background-color: #41235f;
+    color: white;
+    padding: 5px 10px; /* Smaller size buttons */
+    border-radius: 8px; /* Slight curve on the buttons */
+    font-size: 14px; /* Adjust font size for smaller buttons */
+    transition: background-color 0.3s, color 0.3s;
+    text-decoration: none; /* Remove underline from links */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lavender-button:hover {
+    background-color: rgb(217, 164, 243);
+    color: black;
+}
+</style>
+
+<div class="header-bar">
+    <!-- Left side: Logo and heading -->
+    <a href="index.html" class="logo-container">
+        <img src="logo.png" alt="LOGO" class="logo-img">
+        <span class="logo-heading">MoneyManager</span>
+    </a>
+    
+    <!-- Right side: Buttons -->
+    <div class="w3-right">
+        <a href="index.html" class="lavender-button">ABOUT US</a>
+        <a href="features.html" class="lavender-button">FEATURE</a>
+        <a href="help1.html" class="lavender-button">HELP CENTER</a>
+        <a href="contact.html" class="lavender-button">CONTACT US</a>
+        <a href="login.html" class="lavender-button">
+            <i class="fa fa-sign-in" style="font-size: 24px;"></i> LOGIN
+        </a>
+    </div>
+</div>

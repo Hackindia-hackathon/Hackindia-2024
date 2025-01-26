@@ -1,0 +1,254 @@
+/* @tailwind base;
+/* @tailwind components;
+/* @tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+} */
+
+.survey-container {
+  margin-top: 20px;
+}
+
+.options-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.option-label {
+  position: relative;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.option-label input {
+  display: none;
+  /* Hide the default radio button */
+}
+
+.animated-button {
+  padding: 10px 20px;
+  border-radius: 30px;
+  background: #007bff;
+  color: white;
+  transition: all 0.4s ease;
+}
+
+.option-label input:checked+.animated-button {
+  background: #0056b3;
+  transform: scale(1.1);
+}
+
+.option-label:hover .animated-button {
+  background: #0069d9;
+}
+
+.button-group {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+button:not(:disabled):hover {
+  background-color: #0056b3;
+}
+
+@keyframes gradientBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.hero-caption {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradientBackground 15s ease infinite;
+  position: relative;
+  color: white;
+  z-index: 2;
+}
+
+.hero-caption::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  /* Adjust the opacity for a darker overlay */
+  z-index: 1;
+}
+
+.hero-caption .container,
+.hero-caption .row,
+.hero-caption .col-lg-12 {
+  position: relative;
+  z-index: 3;
+}
+
+.mobile-preview {
+  position: relative;
+  z-index: 3;
+}
+
+/* New Falling Star Animation */
+.sky {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.stars {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background-color: white;
+  opacity: 0.8;
+  border-radius: 50%;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  from {
+    transform: translateY(-100px);
+  }
+
+  to {
+    transform: translateY(100vh);
+  }
+}
+
+.fixed-buttons {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+  /* Adjust as needed */
+  padding: 0 20px;
+  z-index: 2;
+}
+
+.fixed-buttons .btn {
+  width: 120px;
+  /* Adjust as needed */
+}
+/* Existing styles... */
+
+/* Shooting Stars Animation */
+.shooting-stars {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.shooting-star {
+  position: absolute;
+  width: 2px;
+  height: 80px;
+  /* Adjust height as needed */
+  background: white;
+  opacity: 0.8;
+  border-radius: 50%;
+  transform-origin: 0% 50%;
+  animation: shoot linear infinite;
+}
+
+@keyframes shoot {
+  0% {
+    transform: translateX(-100vw) rotate(-45deg);
+  }
+
+  100% {
+    transform: translateX(100vw) rotate(-45deg);
+  }
+}
+
+@keyframes gradientBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Remaining styles... */

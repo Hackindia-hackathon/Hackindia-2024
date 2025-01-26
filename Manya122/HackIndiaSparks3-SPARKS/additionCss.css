@@ -1,0 +1,126 @@
+.back-img{
+    background-image: url(bit-banner.jpeg);
+    background-size: cover;
+    background-attachment: fixed;
+    height:750px;
+    background-color:black;
+    background-repeat: no-repeat;
+    background-position:center;
+  }
+  .get-started-button{
+    background-color: rgb(71, 22, 135);
+    color:white;
+    font-size: 14px;
+    font-weight: 600;
+    height: 40px;
+    width: 105px;
+    border-radius: 6px;
+    cursor: pointer;
+    border: none;
+    margin-right: 8px;
+    border:3px solid rgb(41, 38, 41);
+  }
+
+  .heading-text{
+    position:absolute;
+    top:68%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    color:rgb(252, 253, 253);
+    font-family:courier;
+    font-size: 55px;
+  }
+
+  .intro-text{
+    text-align: center;
+    font-family: Arial,sans-serif;
+    font-size:20px;
+    color:white;
+    position:relative;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    font-weight: 600;
+  }
+
+  .intro-bg{
+    background-image:url(/purple-bg-2.jpeg);
+    height:130px;
+    background-position: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    background-attachment: fixed;
+  }
+
+  .bodybg{
+    background-image: url(/bit-bg1f.jpeg);
+    background-color:rgb(207, 180, 207);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+  }
+
+  .sub-button{
+    background-color: rgb(172, 76, 156);
+    color:rgb(36, 36, 36);
+    font-size: 14px;
+    font-weight: 600;
+    height: 40px;
+    width: 105px;
+    border-radius: 6px;
+    cursor: pointer;
+    border:3px solid rgb(41, 38, 41);
+    margin: 15px;
+  }
+
+  pre{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin:10px;
+}
+
+.code{
+    background-color: black;
+    color:white;
+    margin-left: 50px;
+    margin-right:200px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.align{
+    margin-left: 50px;
+    margin-right:200px;
+}
+
+.paragraphs{
+  font-size: 20px;
+  color:azure;
+}
+
+.h1-of-sub-pages{
+  color:white;
+  font-size: 45px;
+}
+
+.h2-of-sub-pages{
+  color:white;
+  font-size: 30px;
+}
+
+.heading-of-para{
+  font-size: 25px;
+  font-weight: 600;
+  color:white;
+}
+  
+.bodybg2{
+  background-image: url(/bright-edited5.jpg);
+  background-color:rgb(207, 180, 207);
+  background-repeat: no-repeat;
+  height:1500px;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  
+}

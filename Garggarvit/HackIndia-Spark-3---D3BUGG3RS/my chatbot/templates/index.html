@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot UI</title>
+    <style>
+        body {
+            background-image: url('K:\college work\hackathon\my chatbot\templates\background.jpg'); /* Update this path */
+            background-position: center;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .chat-box {
+            height: 400px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+            background-color: #fafafa;
+        }
+        .chat-message {
+            margin-bottom: 15px;
+        }
+        .user-message {
+            text-align: right;
+        }
+        .user-message .message {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+        .bot-message {
+            text-align: left;
+        }
+        .bot-message .message {
+            background-color: #e9ecef;
+            padding: 10px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+        .input-container {
+            display: flex;
+            margin-top: 10px;
+        }
+        .input-container textarea {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            resize: none;
+        }
+        .input-container button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-left: 10px;
+        }
+        .input-container button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Chat with Ami</h1>
+        <div class="chat-box" id="chat-box">
+            <!-- Chat messages will appear here -->
+        </div>
+        <div class="input-container">
+            <textarea id="message-input" rows="3" placeholder="Type your message here..."></textarea>
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        function appendMessage(content, isUser) {
+            const chatBox = document.getElementById('chat-box');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'chat-message ' + (isUser ? 'user-message' : 'bot-message');
+            messageDiv.innerHTML = '<div class="message">' + content + '</div>';
+            chatBox.appendChild(messageDiv);
+            chatBox.scrollTop = chatBox.scrollHeight;  // Scroll to the bottom
+        }
+
+        async function sendMessage() {
+            const input = document.getElementById('message-input');
+            const userMessage = input.value.trim();
+            if (userMessage === '') return;
+
+            appendMessage(userMessage, true);  // Show user message
+
+            // Clear input field
+            input.value = '';
+
+            try {
+                const response = await fetch('/webhook', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ message: userMessage })
+                });
+
+                const data = await response.json();
+                if (data.response) {
+                    appendMessage(data.response, false);  // Show bot response
+                } else if (data.error) {
+                    appendMessage('Error: ' + data.error, false);
+                }
+            } catch (error) {
+                appendMessage('Error: Could not connect to server.', false);
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,184 @@
+/* General Styles */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+background-image: url(https://cdn.mos.cms.futurecdn.net/mpGh6USjRkE3dPQnF8tXRC-1280-80.jpg.webp); 
+color: #333;
+background-size: cover;
+background-repeat: no-repeat;
+background-position: center;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #630b01;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: bottom;
+  color: white;
+  font-size: large;
+  margin-top: 0%;
+}
+
+.navbar .logo {
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.navbar nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.navbar nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 26px;
+}
+
+.navbar nav ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Hero Section */
+.hero {
+  background-image: url("https://example.com/your-image.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 350px 20px;
+  color: black;
+  text-align: right;
+  padding-right: 10%;
+}
+
+.hero-content h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 24px;
+  margin-bottom: 40px;
+}
+
+.btn {
+  background-color: #e74c3c;
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 5px;
+  font-size: 28px;
+  cursor: pointer;
+  text-decoration: none;
+  size: 50px;
+}
+
+.btn:hover {
+  background-color: #c0392b;
+  
+}
+
+/* Create Section */
+.create-section {
+  background-color: #ecf0f1;
+  padding: 300px 20px;
+  text-align: center;
+  align-items: center;
+
+}
+
+.create-section h2 {
+  font-size: 50px;
+  margin-bottom: 20px;
+}
+
+.create-section input {
+  padding: 15px;
+  width: 300px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.create-section button {
+  padding: 40px 15px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: larger;
+}
+
+.create-section button:hover {
+  background-color: #2980b9;
+}
+
+#create #status {
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+/* Gallery Section */
+.gallery-section {
+  padding: 60px 20px;
+  background-color: #fff;
+  text-align: center;
+}
+
+.gallery-section h2 {
+  font-size: 36px;
+  margin-bottom: 40px;
+}
+
+.nft-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.nft-item {
+  background-color: #ecf0f1;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.nft-item img {
+  max-width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.nft-item h3 {
+  font-size: 20px;
+  margin: 0;
+}
+
+/* Footer */
+.footer {
+  background-color: #630b01;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+  position:bottom;
+
+}
+
+.footer p {
+  margin: 5px 0;
+}
+
+#tokenURI{
+  padding: 40px 20px;
+  font-size: larger;
+
+}
+
+#Ent {
+  background: "hero-banner.png";
+}

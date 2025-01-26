@@ -1,0 +1,277 @@
+*{
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+    font-family: gilroy;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+    cursor: none;
+}
+
+#cursor{
+  position: absolute;
+  height: 50px;
+  opacity: 1;
+  z-index: 5;
+  pointer-events: none;
+  top: 0;
+  overflow: hidden;
+}
+
+#nav{
+    width: 100%;
+    height: 7%;
+    background-color: aqua;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-around;
+}
+#nav h1{
+    width: 50%;
+}
+#nav i{
+    display: none;
+}
+
+video{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  opacity: 1;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+
+}
+
+
+
+#main{
+  opacity: 0.95;
+  position: relative;
+   width: 100%;
+   height: 93%;
+   background: rgb(227, 255, 255);
+   display: flex;
+   z-index: 1;
+   
+}
+
+#part1{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    background: rgb(227, 255, 255);
+}
+#part1 h1{
+  text-align: center;
+  padding: 20% 0;
+}
+#part1 h5{
+    text-align: center;
+    width: 100%;
+}
+#icons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
+    height: 7%;
+}
+
+
+#part2{
+    height: 100%;
+    width: 50%;
+    background: rgb(227, 255, 255);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.box{
+    width: 80%;
+    height: 40%;
+    border: 5px solid blue;
+    border-radius: 50px;
+    background: white;
+    box-shadow: 2px;
+
+
+}
+
+#feature1{
+    display: flex;
+
+}
+
+.half-box{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3%;
+}
+
+.numbox{
+    height: 50%;
+    width: 60%;
+    background: #ccc;
+    border-radius: 10%;
+}
+
+.numbox h1 {
+    text-align: center;
+    font-size: 400%;
+   
+}
+/*
+#gas{
+  display: flex;
+  flex-direction: column;
+}
+
+#gas h6{
+   display: none;
+}*/
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+  .upload-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    margin: 0 19%;
+    top: 5%;
+  }
+  
+  .btn {
+    border: 2px solid gray;
+    color: gray;
+    background-color: white;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .upload-btn-wrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+  }
+
+  textarea {
+    width: 90%;
+    height: 120px;
+    margin: 8% 5%;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    color: gray;
+    border: 2px solid gray;
+    border-radius: 8px;
+    background-color: white;
+    font-size: 20px;
+    resize: none;
+  }
+  iframe{
+    position: relative;
+    top: -1px;
+    left: -50px;
+   
+  }
+
+  #part1 h1{
+    width: 92%;
+    margin-left: 5%;
+   
+  }
+   
+  #part1 h1 span {
+    background-image: linear-gradient(rgb(0, 255, 255), #8f98ff);
+    background-repeat: no-repeat;
+    background-position: 0% 100%;
+    background-size: 100% 12px;
+  }
+
+  #part1 h1 span:hover {
+    background-size: 100% 100%;
+    background-position: 0% 0%;
+  }
+
+  #part1 h1 span {
+    transition: background-size .5s, background-position .3s ease-in .5s;
+  }
+  #part1 h1 span:hover {
+    transition: background-position .5s, background-size .3s ease-in .5s;
+  }

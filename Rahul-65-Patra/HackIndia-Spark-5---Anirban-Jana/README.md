@@ -1,0 +1,1 @@
+This project facilitates decentralized image uploading and sharing using blockchain, with smart contracts in Solidity and a React-based front-end. It ensures secure image storage on IPFS, with controlled access via smart contracts, and provides immutable records and Web3 authentication for a secure, user-friendly experience.

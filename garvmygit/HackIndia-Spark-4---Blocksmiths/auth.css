@@ -1,0 +1,76 @@
+/* Global Styles */
+body {
+    background-color: #0a0a0a;
+    color: #f8f9fa;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+
+/* Authentication Container */
+.auth-wrapper {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.auth-container {
+    background-color: #1f4068;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    max-width: 450px;
+    width: 100%;
+}
+
+/* Form Titles */
+.auth-title {
+    font-size: 1.8rem;
+    color: #00adb5;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+/* Input Fields */
+.form-control {
+    background-color: #162447;
+    color: #f5f5f5;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+    background-color: #0f3460;
+    outline: none;
+    box-shadow: 0 0 10px #00adb5;
+}
+
+/* Buttons */
+.btn-block {
+    padding: 12px 25px;
+    border-radius: 12px;
+    font-weight: bold;
+    transition: background-color 0.4s ease, transform 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #00adb5;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #00c1c5;
+    transform: translateY(-3px);
+}
+
+.btn-success {
+    background-color: #20c997;
+    border: none;
+}
+
+.btn-success:hover {
+    background-color: #18b28b;
+    transform: translateY(-3px);
+}

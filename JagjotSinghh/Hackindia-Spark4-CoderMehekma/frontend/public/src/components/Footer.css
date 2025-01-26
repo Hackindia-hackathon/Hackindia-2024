@@ -1,0 +1,44 @@
+.footer {
+    background-color: #282c34;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    animation: footerAppear 1.5s ease-in-out;
+  }
+  
+  .footer p {
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    margin: 0;
+    animation: textFade 2s ease-in-out;
+  }
+  
+  .footer p:hover {
+    color: #61dafb;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  @keyframes footerAppear {
+    from {
+      transform: translateY(50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes textFade {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  

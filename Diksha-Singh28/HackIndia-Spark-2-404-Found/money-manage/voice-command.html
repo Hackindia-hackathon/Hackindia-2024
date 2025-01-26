@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Budget Planner with Voice Command</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    body, html {
+        height: 100%;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #f2f2f2;
+    }
+
+    .container {
+        text-align: center;
+        background-color: #5d438d;
+        padding: 30px;
+        width: 90%;
+        max-width: 600px;
+        border-radius: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        color: white;
+    }
+
+    input, button {
+        margin: 10px 0;
+        padding: 10px;
+        width: calc(100% - 22px);
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        font-size: 1em;
+    }
+
+    button {
+        background-color: #0d0933;
+        color: white;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    button:hover {
+        background-color: #373156;
+    }
+
+    #result, #balance, #message {
+        margin-top: 20px;
+        font-size: 1.2em;
+        font-weight: bold;
+    }
+</style>
+<body>
+    <div class="container">
+        <h1><b>Budget Planner with Voice Command</b></h1>
+        <input type="number" id="budget" placeholder="Enter your budget">
+        <input type="number" id="expenses" placeholder="Enter your expenses">
+        <br>
+        <button onclick="checkBudget()">Check Budget</button>
+        <p id="message"></p>
+        <button id="listenBtn">Start Listening</button>
+        <p id="result"></p>
+        <p id="balance">Balance: $1000</p>
+    </div>
+
+    <script>
+        // Initialize balance
+        let balance = 1000;
+
+        // Function to check the budget
+        function checkBudget() {
+            const budget = parseFloat(document.getElementById('budget').value);
+            const expenses = parseFloat(document.getElementById('expenses').value);
+            const message = document.getElementById('message');
+
+            if (isNaN(budget) || isNaN(expenses)) {
+                message.style.color = 'red';
+                message.textContent = 'Please enter valid numbers for budget and expenses.';
+            } else if (expenses > budget) {
+                message.style.color = 'red';
+                message.textContent = 'Warning: Expenses exceed your budget!';
+            } else {
+                message.style.color = 'green';
+                message.textContent = 'Your budget is on track!';
+            }
+        }
+
+        // Start listening for voice commands
+        document.getElementById('listenBtn').addEventListener('click', startListening);
+
+        function startListening() {
+            const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+            recognition.lang = 'en-US';
+            recognition.start();
+
+            recognition.onresult = (event) => {
+                const command = event.results[0][0].transcript.toLowerCase();
+                document.getElementById('result').textContent = `You said: ${command}`;
+
+                if (command.includes('add expense')) {
+                    const amount = extractAmount(command);
+                    if (amount) {
+                        balance -= amount;
+                        updateBalance();
+                    }
+                } else if (command.includes('check balance')) {
+                    alert(`Your balance is $${balance.toFixed(2)}`);
+                }
+            };
+
+            recognition.onerror = (event) => {
+                console.error('Error occurred in recognition:', event.error);
+            };
+        }
+
+        // Extract amount from the voice command
+        function extractAmount(command) {
+            const amountMatch = command.match(/(\d+(\.\d{1,2})?)/);
+            return amountMatch ? parseFloat(amountMatch[0]) : null;
+        }
+
+        // Update balance display
+        function updateBalance() {
+            document.getElementById('balance').textContent = `Balance: $${balance.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+@font-face {
+  font-family: Poppins;
+  src: url("../assets/fonts/Poppins-Regular.otf");
+  font-weight: 500;
+}
+@font-face {
+  font-family: Poppins;
+  src: url("../assets/fonts/Poppins-Medium.otf");
+  font-weight: 900;
+}
+@font-face {
+  font-family: Poppins;
+  src: url("../assets/fonts/Poppins-Light.otf");
+  font-weight: 400;
+}
+
+@layer base {
+  img {
+    @apply select-none;
+  }
+  button {
+    @apply shadow-md shadow-gray-400/30;
+  }
+  html {
+    @apply min-h-screen bg-gray-100/30;
+  }
+}
+
+@layer components {
+  .primary-button {
+    @apply animate-small cursor-pointer rounded bg-blue-400 py-2 px-4 font-bold text-white hover:bg-blue-600;
+  }
+  .header-link {
+    @apply hidden cursor-pointer items-center whitespace-nowrap hover:underline md:inline-flex;
+  }
+  .link {
+    @apply inline-flex cursor-pointer items-center whitespace-nowrap text-gray-700 hover:text-blue-500 hover:underline;
+  }
+  .card {
+    @apply animate-small cursor-pointer rounded-lg border border-gray-200 bg-gray-100/70 p-4 hover:bg-gray-200/50 active:scale-105;
+  }
+  .animate-large {
+    @apply transition-all duration-150 ease-in-out hover:scale-125 active:scale-90;
+  }
+  .animate-small {
+    @apply transition-all duration-150 ease-in-out hover:scale-105 active:scale-95;
+  }
+  .form-input {
+    @apply block w-full appearance-none rounded-md border-2 border-gray-300 bg-transparent py-2.5 px-2 text-sm font-normal text-gray-900 outline-none focus:border-blue-600 focus:ring-0;
+  }
+  .floating-label {
+    @apply pointer-events-none absolute left-2 top-3 z-10 origin-[0] -translate-y-6 scale-75 transform bg-white px-2 py-1 text-sm font-semibold text-gray-500 duration-300 peer-placeholder-shown:top-2 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:font-medium peer-focus:text-blue-600 peer-focus-visible:top-3;
+  }
+  .side-nav-button {
+    @apply animate-small flex w-52 items-center rounded-xl border-2 border-blue-500 px-4 py-2 font-semibold text-black transition-[width] hover:bg-blue-600 hover:text-white;
+  }
+  .special-text{
+    @apply bg-gradient-to-r from-blue-700 via-purple-700 to-purple-900 bg-clip-text font-extrabold leading-10 text-transparent h-14 text-4xl
+  }
+}
+
+html {
+  font-family: Poppins, system-ui, sans-serif;
+}

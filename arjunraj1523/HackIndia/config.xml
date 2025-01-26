@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<widget id="com.ionicframework.hackindia141639" version="0.0.1" android-versionCode="1" ios-CFBundleVersion="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+  <name>HackIndia</name>
+  <description>
+        Application for HackIndia
+    </description>
+  <author email="arjraj1523@gmail.com" href="http://arjunraj.net/">
+      HackIndia
+    </author>
+  <content src="index.html"/>
+  <access origin="*"/>
+  <access origin="tel:*" launch-external="yes" />
+  <access origin="mailto:*" launch-external="yes" />
+    
+  <preference name="webviewbounce" value="false"/>
+  <preference name="UIWebViewBounce" value="false"/>
+  <preference name="DisallowOverscroll" value="true"/>
+  <preference name="android-minSdkVersion" value="16"/>
+  <preference name="BackupWebStorage" value="none"/>
+  <preference name="SplashScreen" value="screen"/>
+  <preference name="SplashScreenDelay" value="3000"/>
+  <preference name="Fullscreen" value="true" />
+  <preference name="Orientation" value="portrait" />
+  <feature name="StatusBar">
+    <param name="ios-package" value="CDVStatusBar" onload="true"/>
+  </feature>
+  <platform name="android">
+    <icon src="www/img/hi_logo.png" density="ldpi"/>
+    <icon src="www/img/hi_logo.png" density="mdpi"/>
+    <icon src="www/img/hi_logo.png" density="hdpi"/>
+    <icon src="www/img/hi_logo.png" density="xhdpi"/>
+    <icon src="www/img/hi_logo.png" density="xxhdpi"/>
+    <icon src="www/img/hi_logo.png" density="xxxhdpi"/>
+    <splash src="resources/android/splash/res-long-land-ldpi/default.png" density="land-ldpi"/>
+    <splash src="resources/android/splash/res-long-land-mdpi/default.png" density="land-mdpi"/>
+    <splash src="resources/android/splash/res-long-land-hdpi/default.png" density="land-hdpi"/>
+    <splash src="resources/android/splash/res-long-land-xhdpi/default.png" density="land-xhdpi"/>
+    <splash src="resources/android/splash/res-long-land-xxhdpi/default.png" density="land-xxhdpi"/>
+    <splash src="resources/android/splash/res-long-land-xxxhdpi/default.png" density="land-xxxhdpi"/>
+    <splash src="resources/android/splash/res-long-port-ldpi/default.png" density="port-ldpi"/>
+    <splash src="resources/android/splash/res-long-port-mdpi/default.png" density="port-mdpi"/>
+    <splash src="resources/android/splash/res-long-port-hdpi/default.png" density="port-hdpi"/>
+    <splash src="resources/android/splash/res-long-port-xhdpi/default.png" density="port-xhdpi"/>
+    <splash src="resources/android/splash/res-long-port-xxhdpi/default.png" density="port-xxhdpi"/>
+    <splash src="resources/android/splash/res-long-port-xxxhdpi/default.png" density="port-xxxhdpi"/>
+  </platform>
+</widget>

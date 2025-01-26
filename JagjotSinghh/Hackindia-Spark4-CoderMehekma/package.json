@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "@maticnetwork/maticjs": "^3.9.2",
+    "@openzeppelin/contracts": "^5.0.2",
+    "@truffle/hdwallet-provider": "^1.7.0",
+    "dotenv": "^16.4.5",
+    "ethers": "^6.13.3",
+    "express": "^2.5.11",
+    "react": "^18.3.1",
+    "scripts": "^0.1.0",
+    "uws": "^10.148.2",
+    "web3": "^1.6.1"
+  }
+}

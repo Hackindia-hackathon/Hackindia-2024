@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Details</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <h1>OrderSystem</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="cart.html">Cart</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </nav>
+
+    <!-- Cart Information -->
+    <header>
+        <div id="cart">
+            Cart: <span id="cart-count">0</span> items
+        </div>
+        <div id="bill">
+            Total Bill: ₹<span id="cart-total">0</span>
+        </div>
+    </header>
+
+    <!-- Restaurant Info and Menu -->
+    <section class="restaurant-info">
+        <img src="images/360_F_324739203_keeq8udvv0P2h1MLYJ0GLSlTBagoXS48.jpg" alt="Restaurant 1" width="500px" height="400px">
+        <h2>SINDHI SWEETS</h2>
+        <p>Indian, Chinese, Fast Food</p>
+        <p>Rating: 4.5/5</p>
+    </section>
+    <section class="menu">
+        <h3>Menu</h3>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <h4>Noodles</h4>
+                <p>₹150</p>
+                <button onclick="addToCart('Noodles', 150)">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <h4>Chole Bhature</h4>
+                <p>₹200</p>
+                <button onclick="addToCart('Chole Bhature', 200)">Add to Cart</button>
+            </div>
+            <!-- Add more dishes -->
+        </div>
+    </section>
+
+    <!-- Additional restaurants and menus -->
+    <!-- Repeat similar blocks for other restaurants -->
+
+    <script src="js/script.js"></script>
+</body>
+</html>

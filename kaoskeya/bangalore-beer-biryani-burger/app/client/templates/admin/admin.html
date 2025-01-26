@@ -1,0 +1,16 @@
+<template name="Admin">
+	{{ > kAdmin }}
+</template>
+
+<template name="AdminAddItem">
+	{{ #autoForm type="insert" collection="Item" id="AdminAddItemForm" }}
+		{{ > afQuickField name="name" }}
+		{{ > afQuickField name="description" }}
+		{{ > afQuickField name="photos" }}
+		{{ > afQuickField name="type" options="allowed" }}
+		{{ > afQuickField name="approved" }}
+		{{ > afQuickField name="restaurant_id" options=restaurantList }}
+		<button class="btn btn-primary btn-block" type="submit">Add Item</button>
+		<br />
+	{{ /autoForm }}
+</template>

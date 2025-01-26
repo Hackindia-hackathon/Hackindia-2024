@@ -1,0 +1,110 @@
+// Ionic Starter App
+
+// angular.module is a global place for creating, registering and retrieving Angular modules
+// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
+// the 2nd parameter is an array of 'requires'
+// 'starter.services' is found in services.js
+// 'starter.controllers' is found in controllers.js
+angular.module('starter', ['ionic', 'starter.controllers','starter.services','ionic.service.analytics','ngCordova','ionic.service.core','ionic.service.push',])
+
+.run(function($ionicPlatform, $ionicAnalytics) {
+  $ionicPlatform.ready(function() {
+      $ionicAnalytics.register();
+    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+    // for form inputs)
+    if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
+      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+    }
+    if (window.StatusBar) {
+      // org.apache.cordova.statusbar required
+      StatusBar.styleLightContent();
+    }
+  });
+})
+
+.config(['$ionicAppProvider', function($ionicAppProvider) {
+  // Identify app
+  $ionicAppProvider.identify({
+    // The App ID (from apps.ionic.io) for the server
+    app_id: '69ee41f6',
+    // The public API key all services will use for this app
+    api_key: '31e3a55434036c09e940428bb6438e925d2028c011e3930d',
+    gcm_id: '712008898761'
+    // Set the app to use development pushes
+  });
+}])
+
+
+.config(function($stateProvider, $urlRouterProvider,$ionicAppProvider) {
+
+  // Ionic uses AngularUI Router which uses the concept of states
+  // Learn more here: https://github.com/angular-ui/ui-router
+  // Set up the various states which the app can be in.
+  // Each state's controller can be found in controllers.js
+  $stateProvider
+
+  // setup an abstract state for the tabs directive
+    .state('tab', {
+    url: "/tab",
+    abstract: true,
+    templateUrl: "templates/tabs.html"
+  })
+
+  // Each tab has its own nav history stack:
+
+  .state('tab.home', {
+    url: '/home',
+    views: {
+      'tab-home': {
+        templateUrl: 'templates/tab-home.html',
+        controller: 'DashCtrl'
+      }
+    }
+  })
+
+  .state('tab.schedule', {
+      url: '/schedule',
+      views: {
+        'tab-schedule': {
+          templateUrl: 'templates/tab-schedule.html',
+          controller: 'ScheduleCtrl'
+        }
+      }
+    })
+      
+  
+  .state('tab.flayout', {
+    url: '/flayout',
+    views: {
+      'tab-flayout': {
+        templateUrl: 'templates/tab-flayout.html',
+        controller: 'FLayoutCtrl'
+      }
+    }
+  })
+    
+    
+.state('tab.contact', {
+    url: '/contact',
+    views: {
+      'tab-contact': {
+        templateUrl: 'templates/tab-contact.html',
+        controller: 'ContactCtrl'
+      }
+    }
+  })
+
+  .state('tab.spon', {
+    url: '/spon',
+    views: {
+      'tab-spon': {
+        templateUrl: 'templates/tab-spon.html',
+        controller: 'SponCtrl'
+      }
+    }
+  });
+
+  // if none of the above states are matched, use this as the fallback
+  $urlRouterProvider.otherwise('/tab/home');
+
+});

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LandChain - Land Registration</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>LandChain - Land Registration System</h1>
+    <div id="registration">
+        <h2>Register</h2>
+        <form id="registration-form">
+            <input type="text" id="username" placeholder="Enter your name" required>
+            <input type="email" id="email" placeholder="Enter your email" required>
+            <input type="text" id="role" placeholder="Seller/Buyer" required>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+    <div id="dashboard" style="display:none;">
+        <h2>User Dashboard</h2>
+        <div id="user-info"></div>
+        <h3>Add Land</h3>
+        <form id="land-form">
+            <input type="text" id="land-owner" placeholder="Owner Name" required>
+            <input type="text" id="land-location" placeholder="Location" required>
+            <input type="number" id="land-size" placeholder="Size in sq. ft." required>
+            <button type="submit">Add Land</button>
+        </form>
+        <div id="transaction-status"></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/web3/dist/web3.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

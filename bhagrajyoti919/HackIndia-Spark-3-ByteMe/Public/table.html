@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>HII</h1>
+    <div class="container" id="root">
+
+    </div>
+
+    <script>
+        async function fetchData() {
+            try{
+                const urlParams=new URLSearchParams(window.location.search);
+                const type=urlParams.get('type');
+
+                const response=await fetch(`/api/getType?type=${type}`);
+                const data=await response.json();
+                console.log(data);
+                const container=document.getElementById('root');
+                data.forEach(item=>{
+                    const div = document.createElement('div');
+                    div.textContent = `Item: ${item.name}`;
+                    container.appendChild(div);
+                });
+            }
+            catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+
+        fetchData();
+    </script>
+</body>
+</html>

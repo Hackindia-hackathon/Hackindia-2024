@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delivery Dashboard</title>
+  <link rel="stylesheet" href="styles.css"> <!-- Link to CSS -->
+</head>
+<body>
+  <!-- Login Form -->
+  <div id="login-container" class="login-container">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <label for="username">Username</label>
+      <input type="text" id="username" placeholder="Enter Username" required />
+      
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="Enter Password" required />
+      
+      <button type="submit" id="loginButton">Login</button>
+    </form>
+  </div>
+
+  <!-- Dashboard -->
+  <div id="dashboard-container" class="dashboard-container hidden">
+    <h1>Delivery Man Dashboard</h1>
+
+    <!-- Delivery Man Details -->
+    <div class="info-section">
+      <div class="delivery-man-info">
+        <h2>Name: <span id="deliveryName">John Doe</span></h2>
+        <h3>Wallet Address: <span id="walletAddress">1234-5678-91011</span></h3>
+        <h3>Wallet Amount: ₹<span id="walletAmount">500</span></h3>
+      </div>
+
+      <!-- Rating Section -->
+      <div class="rating-info">
+        <h3>Overall Rating: <span id="rating">4.7</span> / 5</h3>
+        <h3>No. of On-time Deliveries: <span id="onTimeDeliveries">87</span></h3>
+      </div>
+    </div>
+
+    <!-- Pie Chart Section -->
+    <div id="chartContainer">
+      <canvas id="ratingChart"></canvas>
+    </div>
+
+    <!-- Redeem Rewards Button -->
+    <div class="action-section">
+      <button id="redeemButton">Redeem Rewards to Bank Account</button>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Pie Chart Library -->
+  <script src="script.js"></script> <!-- Link to JS -->
+</body>
+</html>

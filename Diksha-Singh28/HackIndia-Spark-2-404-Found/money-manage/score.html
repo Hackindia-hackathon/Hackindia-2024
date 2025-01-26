@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Score Calculator</title>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    justify-content: center; /* Center horizontally */
+    align-items: center; 
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.budget-form, .result {
+    margin-bottom: 30px;
+}
+
+.budget-form h2, .result h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+}
+
+.budget-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.budget-form label {
+    margin-bottom: 5px;
+}
+
+.budget-form input {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.budget-form button {
+    padding: 10px 15px;
+    background-color: #41235f;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.budget-form button:hover {
+    background-color: #41235f;
+}
+
+.result p {
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+}
+
+</style>
+<body>
+    <div class="container">
+        <header>
+            <h1>Budget Score Calculator</h1>
+        </header>
+        <section class="budget-form">
+            <h2>Enter Your Budget Details</h2>
+            <form id="budgetForm">
+                <label for="income">Total Income:</label>
+                <input type="number" id="income" name="income" required>
+                
+                <label for="budgeted">Budgeted Expenses:</label>
+                <input type="number" id="budgeted" name="budgeted" required>
+                
+                <label for="actual">Actual Expenses:</label>
+                <input type="number" id="actual" name="actual" required>
+                
+                <button type="button" onclick="calculateScore()">Calculate Score</button>
+            </form>
+        </section>
+        <section class="result">
+            <h2>Your Budget Score</h2>
+            <p id="score"></p>
+        </section>
+    </div>
+    <!-- <script src="scripts.js"></script> -->
+    <script>
+        function calculateScore() {
+    const income = parseFloat(document.getElementById('income').value);
+    const budgeted = parseFloat(document.getElementById('budgeted').value);
+    const actual = parseFloat(document.getElementById('actual').value);
+
+    if (isNaN(income) || isNaN(budgeted) || isNaN(actual)) {
+        alert('Please enter valid numbers');
+        return;
+    }
+
+    // Calculate the deviation percentage
+    const deviation = Math.abs(budgeted - actual) / budgeted * 100;
+
+    // Calculate the score
+    let score;
+    if (deviation <= 5) {
+        score = 100;
+    } else if (deviation <= 10) {
+        score = 90;
+    } else if (deviation <= 15) {
+        score = 80;
+    } else if (deviation <= 20) {
+        score = 70;
+    } else if (deviation <= 30) {
+        score = 60;
+    } else if (deviation <= 40) {
+        score = 50;
+    } else {
+        score = 40;
+    }
+
+    // document.getElementById('score').textContent = Your budget score is: ${score};
+    document.getElementById('score').textContent = `Your budget score is: ${score}`;
+
+}
+
+
+    </script>
+</body>
+</html>

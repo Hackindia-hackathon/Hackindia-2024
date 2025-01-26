@@ -1,0 +1,125 @@
+/* Home Page Styles */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* Changed from height to min-height */
+  background-color: black;
+  color: white;
+  text-align: center;
+  animation: homeFadeIn 1s ease-in-out forwards; /* Added 'forwards' */
+}
+
+.home-title {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  animation: homeSlideInDown 1s ease-out forwards; /* Added 'forwards' */
+}
+
+.home-description {
+  font-size: 1.5rem;
+  max-width: 600px;
+  margin: 0 auto;
+  animation: homeSlideInUp 1s ease-out forwards; /* Added 'forwards' */
+}
+
+/* New Features Section Styles */
+.features-section {
+  padding: 50px 20px;
+  background-color: black; /* Keep background black for features */
+}
+
+.features-section-title {
+  font-size: 2rem;
+  color: #ffffff;
+  margin-bottom: 30px;
+  animation: featuresFadeIn 1s ease-in-out forwards; /* Added 'forwards' */
+}
+
+.feature-item-box {
+  margin: 20px 0;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.1); /* Slightly transparent background for features */
+  border-radius: 10px;
+  opacity: 0; /* Start hidden for animation */
+  transform: translateY(20px); /* Start slightly lower for animation effect */
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Smooth transition */
+  animation-fill-mode: forwards; /* Ensure the animation retains its final state */
+}
+
+.feature-item-box.show {
+  opacity: 1; /* Show on scroll */
+  transform: translateY(0); /* Move to original position */
+}
+
+.feature-slide-left {
+  animation: featureSlideInLeft 0.5s ease-out forwards; /* Added 'forwards' */
+}
+
+.feature-slide-right {
+  animation: featureSlideInRight 0.5s ease-out forwards; /* Added 'forwards' */
+}
+
+/* Animations */
+@keyframes homeFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes homeSlideInDown {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes homeSlideInUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes featuresFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes featureSlideInLeft {
+  from {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes featureSlideInRight {
+  from {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

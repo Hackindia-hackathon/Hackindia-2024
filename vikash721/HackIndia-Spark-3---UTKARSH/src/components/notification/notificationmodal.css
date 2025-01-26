@@ -1,0 +1,28 @@
+.notification {
+    position: fixed;
+    top:10vh;
+    right: 1vw;
+    background-color: #4caf50; /* Green background for success */
+    color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1001; /* Ensure it's above other elements */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.notification-success {
+    background-color: #4caf50; /* Green background for success */
+}
+
+.notification-error {
+    background-color: #f44336; /* Red background for errors */
+}
+
+.notification-close {
+    cursor: pointer;
+    font-size: 20px;
+    margin-left: 15px;
+}

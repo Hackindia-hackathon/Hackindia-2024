@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: font1;
+    line-height: 1.6;
+    background-color: #21282e;
+    color: #333;
+}
+@font-face {
+    font-family: font1;
+    src: url(../web/HammersmithOne-Regular.ttf);
+}
+header {
+
+/* background: linear-gradient(to right,#530a80,#722F37
+); */
+/* background-color:#c19770; */
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 40px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+
+}
+#features:hover{
+    transform: scale(1.01);
+    box-shadow: 10px 10px 10px;
+}
+#pricing:hover{
+    transform: scale(1.01);
+    box-shadow: 10px 10px 10px;
+}
+#contact:hover{
+    transform: scale(1.01);
+    box-shadow: 10px 10px 10px;
+}
+#x1{
+    background-color:#514545;
+    color: #fff;
+    height: 30px;
+    width: 70px;
+}
+#x2{
+    font-size: 25px;
+    
+}
+h2 {
+    color: #0d0d0d;
+}
+
+section {
+    background-color:#d5b79f;;
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    
+    
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background: #333;
+    color: #fff;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}

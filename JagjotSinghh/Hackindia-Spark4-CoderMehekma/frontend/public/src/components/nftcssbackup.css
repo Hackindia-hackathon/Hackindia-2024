@@ -1,0 +1,21 @@
+.nft-card {
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  background-color: white;
+}
+
+.nft-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.buy-button {
+  background-color: #61dafb;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}

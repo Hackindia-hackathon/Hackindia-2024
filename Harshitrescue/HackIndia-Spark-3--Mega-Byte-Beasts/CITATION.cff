@@ -1,0 +1,23 @@
+# YAML 1.2
+---
+authors: 
+  -
+    family-names: sehrawat
+    given-names: harshit
+  -
+    family-names: sehrawat
+    given-names: rekha
+  -
+    family-names: sehrawat
+    given-names: rishi
+  -
+    affiliation: "Prof."
+    family-names: rana
+    given-names: rohan
+cff-version: "1.1.0"
+date-released: 2019-06-01
+message: "If you use this software, please cite it using these metadata."
+repository-code: "https://github.com/Harshitrescue/HackIndia-Spark-3--Mega-Byte-Beasts.git"
+title: BlockChainVoting
+version: "v1.0"
+...

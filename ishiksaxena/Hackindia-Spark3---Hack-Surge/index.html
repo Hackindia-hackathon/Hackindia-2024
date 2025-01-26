@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Ethereum Wallet</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Ethereum Wallet</h1>
+        <button id="connectButton">Connect Wallet</button>
+        <div id="walletDetails" class="hidden">
+            <p id="accountAddress">Account: </p>
+            <p id="accountBalance">Balance: </p>
+        </div>
+    </div>
+
+    <!-- Include Ethers.js from CDN -->
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="wallet.js"></script>
+</body>
+</html>

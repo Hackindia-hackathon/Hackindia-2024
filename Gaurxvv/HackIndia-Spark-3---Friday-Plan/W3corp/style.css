@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+  }
+  
+  /* Body Styling */
+  body {
+	background-color: #1B1F26; 
+	color: #000000; 
+	font-family: 'manrope', sans-serif;
+  }
+  
+  #top {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background:  rgba(34, 34, 34, 0.8); 
+	backdrop-filter: blur(10px);
+	padding: 0px 20px;
+	box-shadow: 0 2px 5px #000000; 
+	z-index: 1000;
+  }
+  
+  #logo {
+	height: 100%;
+  }
+  
+  /* Navigation List */
+  #navList {
+	font-size: 25px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	padding: 10px;
+	justify-content: space-between;
+	position: absolute;
+	right: 20px;
+	top: 10px;
+  }
+  
+  a {
+	text-decoration: none;
+	font-size: 23px;
+	color: white; 
+  }
+  
+  #selectedPage {
+	color: #ffffff; }
+  
+  #navList > li {
+	list-style: none;
+  }
+  
+  #slider, ul {
+	height: 200px;
+  }
+  
+  #slider {
+	font-size: 30px;
+	font-family: 300;
+	margin: auto;
+	overflow: hidden;
+	position: relative;
+	width: 600px;
+  }
+  
+  #slider li {
+	float: left;
+	position: relative;
+	width: 600px;
+	height: 200px;
+  }
+  
+  #slider ul {
+	list-style: none;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 9000px;
+	transition: left .2s linear;
+	margin-left: -25px;
+	font-family: 'Open Sans', sans-serif;
+	color: #000000;
+  }
+  
+ 
+  .slider-container {
+	color: white;
+	margin: 0 auto;
+	padding: 0;
+	width: 550px;
+	min-height: 180px;
+	text-align: center;
+  }
+  
+  .slider-container h2 {
+	color: white; }
+  
+  .slider-container p {
+	margin: 10px 25px;
+	font-weight: semi-bold;
+	line-height: 150%;
+	color: white;
+  }
+  
+   @-webkit-keyframes slide-animation {
+	0% { opacity: 0; }
+	2% { opacity: 1; }
+	20% { left: 0px; opacity: 1; }
+	22.5% { opacity: 0.6; }
+	25% { left: -600px; opacity: 1; }
+	45% { left: -600px; opacity: 1; }
+	47.5% { opacity: 0.6; }
+	50% { left: -1200px; opacity: 1; }
+	70% { left: -1200px; opacity: 1; }
+	72.5% { opacity: 0.6; }
+	75% { left: -1800px; opacity: 1; }
+	95% { opacity: 1; }
+	98% { left: -1800px; opacity: 0; } 
+	100% { left: 0px; opacity: 0; }
+  }
+  
+  #slider ul {
+	-webkit-animation: slide-animation 20s infinite;
+  }
+  
+  #slider ul:hover {
+	-moz-animation-play-state: paused;
+	-webkit-animation-play-state: paused;
+  }
+  
+  /* Header Styling */
+  #header {
+	margin: auto;
+	width: 70%;
+	display: flex;
+	justify-content: space-around;
+	margin-top: 88px;
+  }
+
+  .cardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; 
+    justify-content: space-between;
+	margin-top: 20px;
+}
+  
+.card {
+	width: 40%;
+	background-color: #1a1a1a; 
+	padding: 10px;
+	margin: 10px;
+	border-radius: 22px;
+	font-size: 30px;
+	color: #ffffff;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	padding: 20px;
+	margin: 30px auto;
+	transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  }
+  .cards {
+	width: 45%;
+	font-family: "manrope", sans-serif;
+	font-weight: 300;
+	background-color: #1a1a1a; 
+	padding: 10px;
+	margin: 10px;
+	border-radius: 22px;
+	font-size: 30px;
+	color: #ffffff;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	padding: 40px;
+	margin: 30px auto;
+	transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; 
+  }
+  .card:hover , .cards:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    background-color: #3D3B40 /* Light gray background on hover */
+}
+  
+  
+  /* Image Styling */
+  .imgsize {
+	width: 45%;
+  height: 60%;
+	margin: 10px auto;
+  }
+  
+  /* Bot Styling */
+  #bot{
+	width: 265px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 25px;
+	position: fixed;
+	right: 30px;
+	bottom: 10px;
+	background-color: #000000;
+	border-radius: 53px;
+	color: white;
+  }
+  #botImg {
+	width: 50px;
+  }
+  
+  #botText {
+	margin: 10px;
+	font-weight: 300;
+	color: #000000; 
+	font-family: "manrope" , sans-serif;
+  }
+  
+  #greetBot {
+	position: absolute;
+	top: 10px;
+	left: 80px;
+  }

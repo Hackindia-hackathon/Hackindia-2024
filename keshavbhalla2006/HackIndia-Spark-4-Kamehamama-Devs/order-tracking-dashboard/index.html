@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+	<style>
+        .stars {
+            display: inline-block;
+        }
+
+        .star {
+            font-size: 2rem;
+            cursor: pointer;
+            color: #ccc;
+        }
+
+        .star:hover,
+        .star.selected {
+            color: gold;
+        }
+    </style>
+</head>
+<body>
+     <!-- Navigation Bar -->
+	 <nav>
+        <div class="logo">
+            <h1>ChronoFlow</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Delivery Tracking</h2>
+            <p>Get the fastest feedback.</p>
+			<form id="rewardForm">
+            <input type="text" id="driverAddress" placeholder="Enter Your Delivery wallet address" required>
+            <button type="button" onclick="submitReward()">Reedeem Token</button>
+		  </form>
+        </div>
+    </section>
+	
+    <section>
+        <h2>Your Orders</h2>
+        <div id="user-orders">
+            <!-- Orders and rating system will be displayed here -->
+        </div>
+    </section>
+
+  
+      
+      
+    <script>
+        let web3;
+        let contract;
+        const contractAddress = "0x7EF2e0048f5bAeDe046f6BF797943daF4ED8CB47";
+        const sepoliaChainId = '0xaa36a7'; // Sepolia chain ID
+        const abi = [
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "spender",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "value",
+				"type": "uint256"
+			}
+		],
+		"name": "approve",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "initialSupply",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "spender",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "allowance",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "needed",
+				"type": "uint256"
+			}
+		],
+		"name": "ERC20InsufficientAllowance",
+		"type": "error"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "sender",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "balance",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "needed",
+				"type": "uint256"
+			}
+		],
+		"name": "ERC20InsufficientBalance",
+		"type": "error"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "approver",
+				"type": "address"
+			}
+		],
+		"name": "ERC20InvalidApprover",
+		"type": "error"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "receiver",
+				"type": "address"
+			}
+		],
+		"name": "ERC20InvalidReceiver",
+		"type": "error"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "sender",
+				"type": "address"
+			}
+		],
+		"name": "ERC20InvalidSender",
+		"type": "error"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "spender",
+				"type": "address"
+			}
+		],
+		"name": "ERC20InvalidSpender",
+		"type": "error"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "owner",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "spender",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "value",
+				"type": "uint256"
+			}
+		],
+		"name": "Approval",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "driver",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			}
+		],
+		"name": "rewardDriver",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "to",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "value",
+				"type": "uint256"
+			}
+		],
+		"name": "transfer",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "from",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "to",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "value",
+				"type": "uint256"
+			}
+		],
+		"name": "Transfer",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "from",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "to",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "value",
+				"type": "uint256"
+			}
+		],
+		"name": "transferFrom",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "owner",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "spender",
+				"type": "address"
+			}
+		],
+		"name": "allowance",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}
+		],
+		"name": "balanceOf",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "decimals",
+		"outputs": [
+			{
+				"internalType": "uint8",
+				"name": "",
+				"type": "uint8"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "name",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "owner",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "symbol",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "totalSupply",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+];
+      
+  window.addEventListener('load', async () => {
+    // Modern DApp browsers
+    if (window.ethereum) {
+      web3 = new Web3(window.ethereum);
+      try {
+        await window.ethereum.enable(); // Request account access
+        const chainId = await web3.eth.getChainId();
+
+        // Check if the user is connected to Sepolia
+        if (chainId !== parseInt(sepoliaChainId, 16)) {
+          alert("Please connect to Sepolia network.");
+        }
+      } catch (error) {
+        console.error("User denied account access");
+      }
+    }
+    // Legacy DApp browsers
+    else if (window.web3) {
+      web3 = new Web3(window.web3.currentProvider);
+    } else {
+      alert("Non-Ethereum browser detected. You should consider trying MetaMask!");
+    }
+
+    contract = new web3.eth.Contract(abi, contractAddress);
+  });
+
+  async function rewardDriver(driverAddress, amount) {
+    const accounts = await web3.eth.getAccounts();
+    
+    // Check if connected to Sepolia network
+    const chainId = await web3.eth.getChainId();
+    if (chainId !== parseInt(sepoliaChainId, 16)) {
+      alert("Please connect to the Sepolia network.");
+      return;
+    }
+
+    // Interact with the smart contract
+    try {
+      await contract.methods.rewardDriver(driverAddress, amount).send({ from: accounts[0] });
+      alert("Driver rewarded with tokens!");
+    } catch (error) {
+      console.error("Transaction failed", error);
+    }
+  }
+
+  // Listen for account changes
+  window.ethereum.on('accountsChanged', (accounts) => {
+    console.log('Account changed to:', accounts[0]);
+    // Update your frontend with the new account details
+  });
+
+  // Listen for network changes
+  window.ethereum.on('chainChanged', (chainId) => {
+    console.log('Network changed to:', chainId);
+    if (chainId !== sepoliaChainId) {
+      alert("You have switched to a network other than Sepolia. Please switch back to Sepolia.");
+    }
+    window.location.reload(); // Reload the page on network change
+  });
+  let userOrders = [
+            { orderId: 1, restaurant: 'SINDHI SWEETS', items: ['Noodles', 'Chole Bhature'], totalAmount: 350, delivered: true },
+            
+        ];
+
+        // Function to load user orders and add rating functionality
+        function loadUserOrders() {
+            const ordersDiv = document.getElementById('user-orders');
+            ordersDiv.innerHTML = ''; // Clear previous order list
+
+            // Loop through user orders and display them
+            userOrders.forEach(order => {
+                let orderDiv = document.createElement('div');
+                orderDiv.classList.add('order');
+
+                // Create order content
+                orderDiv.innerHTML = `
+                    <h3>Order ID: ${order.orderId}</h3>
+                    <p>Restaurant: ${order.restaurant}</p>
+                    <p>Items: ${order.items.join(', ')}</p>
+                    <p>Total Amount: ₹${order.totalAmount}</p>
+                    ${order.delivered ? '<p>Order Delivered</p>' : '<p>Order Not Delivered Yet</p>'}
+                    <div class="rating">
+                        <span>Rate Delivery: </span>
+                        <span class="stars" id="stars-${order.orderId}">
+                            <i class="star" data-order="${order.orderId}" data-rating="1">☆</i>
+                            <i class="star" data-order="${order.orderId}" data-rating="2">☆</i>
+                            <i class="star" data-order="${order.orderId}" data-rating="3">☆</i>
+                            <i class="star" data-order="${order.orderId}" data-rating="4">☆</i>
+                            <i class="star" data-order="${order.orderId}" data-rating="5">☆</i>
+                        </span>
+                    </div>
+                `;
+
+                // Append order div to the orders list
+                ordersDiv.appendChild(orderDiv);
+            });
+
+            // Add event listeners to all stars
+            const stars = document.querySelectorAll('.star');
+            stars.forEach(star => {
+                star.addEventListener('click', function() {
+                    const orderId = this.getAttribute('data-order');
+                    const rating = this.getAttribute('data-rating');
+                    rateOrder(orderId, rating);
+                });
+            });
+        }
+
+        // Function to handle the rating
+        function rateOrder(orderId, rating) {
+            alert(`You rated order ${orderId} with ${rating} stars.`);
+            // Save rating (in a real scenario, you'd send this to the server)
+            localStorage.setItem(`rating-${orderId}`, rating);
+
+            // Update the displayed stars for the rated order
+            const stars = document.querySelectorAll(`#stars-${orderId} .star`);
+            stars.forEach((star, index) => {
+                if (index < rating) {
+                    star.classList.add('selected');
+                    star.innerText = '★';  // Filled star
+                } else {
+                    star.classList.remove('selected');
+                    star.innerText = '☆';  // Empty star
+                }
+            });
+        }
+
+        // Load user orders on page load
+        document.addEventListener('DOMContentLoaded', loadUserOrders);
+
+  async function submitReward() {
+	const orderId = 1;
+    const driverAddress = document.getElementById('driverAddress').value;
+	const rating = localStorage.getItem(`rating-${orderId}`); // Get rating from local storage
+    const tokenAmount = rating ? parseInt(rating) * 10 : 0; 
+    await rewardDriver(driverAddress, tokenAmount);
+  }
+
+    // Sample list of user orders (would be fetched from a database in real-world scenario)
+	
+
+              </script>
+      
+    <script src="script.js"></script>
+    <script src="user_dashboard.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
+
+</body>
+</html>

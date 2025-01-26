@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SFortress - The Security Authentication Website</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="pass.css">
+
+
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <img id="logo" src="img/WhatsApp_Image_2024-04-02_at_23.33.54_a3b612e2-removebg-preview.png" alt="Logo" class="logo-img">
+        <a class="navbar-brand" href="#">SFortress</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportContent" aria-controls="navbarSupportContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item" id="logoutnav">
+                    <a class="nav-link" href="index.html">Logout</a>
+                </li>
+                 <!-- Connect Wallet Button -->
+                <li style="background-color: black;"  class="nav-item">
+                    <a class="nav-link" href="Crypto.html">Connect Wallet</a>
+
+                </li>
+
+
+                <!-- <div>
+                    <button id="connectButton">Connect MetaMask</button>
+                    <div id="accountInfo"></div>
+                </div> -->
+            </ul>
+        </div>
+    </nav>
+    <div class="jumbotron text-center" style="background-color: #9e7bc7; color: #ffc107;">
+        <h1>Welcome to SFortress</h1>
+        <p>Your privacy is our priority</p> 
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+               <center> <h3>How SFortress Protects Your Privacy</h3>
+                <p>SFortress uses state-of-the-art encryption to protect your data. We never share your personal information with third parties without your explicit consent. Our user authentication software ensures that only you can access your account. With SFortress, your privacy is in safe hands.</p></center>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="container">
+     <center>   <h1>Password Manager</h1>
+     <br>
+        <p>We're thrilled to have you here. Your digital life contains a myriad of passwords, and we know how challenging it can be to manage them all. That's why we're here to make it easy for you.</p>
+        </center>
+        <!-- Search bar -->
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Search by website or username" id="searchInput">
+        <div class="input-group-append">
+            <button class="btn btn-primary" type="button" id="searchButton">Search</button>
+        </div>
+    </div>
+        
+
+        <center><h2>Your Passwords <span id="alert">(Copied!)</span></h2> </center>
+        <br>
+        <div id="passwordCards" class="row">
+            <!-- Bootstrap cards will be dynamically added here -->
+        </div>
+        <br>
+        <br>
+       <center><h2>Add a Password</h2></center> 
+       
+        <form id="passwordForm">
+            <div class="form-group">
+                <label for="website">Website:</label>
+                <input type="text" class="form-control" id="website" name="website" required>
+            </div>
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <div class="input-group">
+                    <input type="password" class="form-control" id="password" name="password" required>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    
+    
+    <div style="margin-top: 20px; background-color: whitesmoke;" class="container" id="genpass">
+        <center><h1>Password Generate</h1></center>
+       <center><p>Generate strong and secure passwords effortlessly with our password generator tool. Choose your desired level of password strength – weak, medium, or strong – and let our generator create a unique and robust password for you. Enhance the security of your accounts and protect your sensitive information with ease.</p></center>
+<br>
+<br>
+        <center><h2>Generate Password</h2></center>
+        <div id="passwordGenerator">
+            <label for="passwordStrength">Password Strength:</label>
+            <select class="form-control" id="passwordStrength">
+                <option value="weak">Weak</option>
+                <option value="medium">Medium</option>
+                <option value="strong">Strong</option>
+            </select>
+            <center><button id="generatePasswordBtn" class="btn btn-primary mt-2">Generate Password</button></center>
+        </div>
+        <div id="passwordDisplay" style="display: none;">
+            <input type="text" class="form-control mt-3" id="displayedPassword" readonly>
+           <center><button id="copyGeneratedPasswordBtn" class="btn btn-primary mt-2">Copy Password</button>
+            <button id="hideGeneratedPasswordBtn" class="btn btn-secondary mt-2">Hide</button></center>
+        </div>
+    </div>
+    <br>
+    <br>
+
+    <h1 style="text-align: center;">Quick Login</h1>
+
+<div class="container">
+    <div class="login-section">
+        <p>Log in quickly using your existing accounts copy the username and password from above (if stored) click on the icons wher you want to login.</p>
+        <div class="login-icons">
+            <!-- Replace the image sources with your own icons -->
+            <a href="https://account.microsoft.com/account"><img src="img/logo.png" alt="Microsoft Login"></a>
+            <a href="https://www.youtube.com/@signin.."><img src="img\icons8-youtube-48.png" alt="YouTube Login"></a>
+            <a href="https://www.instagram.com/accounts/login/"><img src="img\icons8-instagram-48.png" alt="Instagram Login"></a>
+            <a href="https://accounts.snapchat.com/accounts/v2/login"><img src="img\snapchat.jpeg" alt="Snapchat Login"></a>
+            <a href="https://www.google.com/?hl=login"><img src="img\google.jpeg" alt="Google Login"></a>
+            <a href="https://www.facebook.com/login.php/"><img src="img\icons8-facebook-48.png" alt="Facebook Login"></a>
+
+            <a href="https://twitter.com/i/flow/login"><img src="img\xlogo.jpeg" alt="X Login"></a>
+
+
+
+        </div>
+    </div>
+</div>
+
+<div class="container link-section">
+    <h2>Add Custom Link</h2>
+    <p>
+        Here you can add custom links and website names to quickly access or log in to your favorite websites. Simply enter the website name and its URL in the form below, and click "Create Icon" to generate an icon for quick access. You can also delete any custom links you no longer need by clicking the cross button next to the respective icon.
+    </p>
+    
+    <form id="customLinkForm">
+        <input type="text" id="websiteName" placeholder="Website Name">
+        <input type="url" id="websiteLink" placeholder="Website Link">
+        <button type="submit">Create Icon</button>
+    </form>
+    <div class="link-icons" id="linkIcons">
+        <!-- Icons will be dynamically added here -->
+    </div>
+</div>
+
+
+    <!-- Feedback Section -->
+    <div class="container mt-5">
+        <center>  <h2>Feedback</h2>
+       <p>Your feedback is invaluable to us as we strive for continuous improvement. By sharing your advice, you contribute to our ongoing efforts to enhance our services and offerings. We genuinely appreciate your input and thank you for helping us to better serve you.<br>
+            
+           
+        </p></center>
+        <form>
+            <div class="form-group">
+                <label for="feedback">Your Feedback:</label>
+                <textarea class="form-control" id="feedback" rows="3" required></textarea>
+            </div>
+          <center>  <button type="submit" class="btn btn-primary">Submit Feedback</button></center>
+        </form>
+        <br>
+        <center>Please report any issues to our email address provided below</center>
+           <center><b>SFortresscustomercare@gmail.com</b>
+           </center>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; 2024 SFortress - All Rights Reserved</p>
+                </div>
+                <div class="col-md-6 text-right">
+                    <a href="#" class="text-light mx-2">Privacy Policy</a>
+                    <a href="#" class="text-light mx-2">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+     <!-- Include the new Web3 script -->
+    <script src="web3-interaction.js"></script>
+
+
+    <script src="pass.js"></script>
+
+</body>
+</html>

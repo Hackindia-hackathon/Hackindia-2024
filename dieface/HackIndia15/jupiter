@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# Jupiter - Optimizing JavaScript Compiler/Runtime
+# Copyright (C) Ritvik Choudhary
+
+# GNU General Public License, Version 3
+
+dir=$(dirname "${BASH_SOURCE[0]}")
+DYLD_LIBRARY_PATH="${dir}"/jupiter.lib exec "${dir}"/jupiter.lib/jupiter "$@"
